@@ -8,6 +8,8 @@ import java.util.Random;
 public class App {
     public static void main(String[] args) throws IOException {
         //JOptionPane pane = new JOptionPane();
+        // Any easy way to add UI?
+
         Random rand = new Random();
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -23,7 +25,7 @@ public class App {
         int answer = Integer.parseInt(br.readLine());
 
         while (answer != result) {
-            System.out.println("Nav labi! Mēģini vēlreiz! \n" + "Cik ir " + first_number + " + " + second_number + " ?\n");
+            System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + first_number + " + " + second_number + " ?");
             answer = Integer.parseInt(br.readLine());
         }
         System.out.println("Nu, ta beidzot!!! :)");
