@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 public class App {
     public static void main(String[] args) throws IOException {
 
-        Calculator calculator = new Calculator();
+        AdditionCalculator calculator = new AdditionCalculator();
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
