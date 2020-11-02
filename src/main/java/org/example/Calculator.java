@@ -7,7 +7,7 @@ public class Calculator {
 
     private int firstNumber = rand.nextInt(1000);
     private int secondNumber = rand.nextInt(1000);
-    private int result;
+    private int result = firstNumber + secondNumber;
 
     public int getFirstNumber() {
         return this.firstNumber;
@@ -18,7 +18,7 @@ public class Calculator {
     }
 
     public int getResult() {
-        return this.result = firstNumber + secondNumber;
+        return this.result;
     }
 
 
