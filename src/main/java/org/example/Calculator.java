@@ -5,7 +5,21 @@ import java.util.Random;
 public class Calculator {
     Random rand = new Random();
 
-    int first_number = rand.nextInt(1000);
-    int second_number = rand.nextInt(1000);
-    int result = first_number + second_number;
+    private int firstNumber = rand.nextInt(1000);
+    private int secondNumber = rand.nextInt(1000);
+    private int result;
+
+    public int getFirstNumber() {
+        return this.firstNumber;
+    }
+
+    public int getSecondNumber() {
+        return this.secondNumber;
+    }
+
+    public int getResult() {
+        return this.result = firstNumber + secondNumber;
+    }
+
+
 }

@@ -15,13 +15,13 @@ public class App {
         BufferedReader br = new BufferedReader(isr);
 
         System.out.println("Apēķini:\n");
-        System.out.println(calculator.first_number + " + " + calculator.second_number + " = " + "X\n");
+        System.out.println(calculator.getFirstNumber() + " + " + calculator.getSecondNumber() + " = " + "X\n");
         System.out.println("Cik ir X?");
 
         int answer = Integer.parseInt(br.readLine());
 
-        while (answer != calculator.result) {
-            System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + calculator.first_number + " + " + calculator.second_number + " ?");
+        while (answer != calculator.getResult()) {
+            System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + calculator.getFirstNumber() + " + " + calculator.getSecondNumber() + " ?");
             answer = Integer.parseInt(br.readLine());
         }
         System.out.println("Nu, ta beidzot!!! :)");
