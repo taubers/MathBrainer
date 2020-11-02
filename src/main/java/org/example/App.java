@@ -1,3 +1,5 @@
+package org.example;
+
 // The purpose of the App is to teach to calculate numbers in the head - both for kids and adults.
 
 import java.io.BufferedReader;
