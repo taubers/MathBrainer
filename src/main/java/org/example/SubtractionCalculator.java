@@ -1,7 +1,12 @@
 package org.example;
 
 public class SubtractionCalculator extends AdditionCalculator{
+
+    public SubtractionCalculator(){
+        applyOperation();
+    }
+
     private void applyOperation(){
-        int result = getFirstNumber() - getSecondNumber();
+        this.result = getFirstNumber() - getSecondNumber();
     }
 }

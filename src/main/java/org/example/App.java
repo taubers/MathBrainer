@@ -9,7 +9,12 @@ import java.io.InputStreamReader;
 public class App {
     public static void main(String[] args) throws IOException {
 
-        AdditionCalculator calculator = new AdditionCalculator();
+        SubtractionCalculator calc = new SubtractionCalculator();
+        System.out.println(calc.getFirstNumber());
+        System.out.println(calc.getSecondNumber());
+        System.out.println(calc.getResult());
+
+     /*   AdditionCalculator calculator = new AdditionCalculator();
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -24,6 +29,9 @@ public class App {
             System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + calculator.getFirstNumber() + " + " + calculator.getSecondNumber() + " ?");
             answer = Integer.parseInt(br.readLine());
         }
-        System.out.println("Nu, ta beidzot!!! :)");
+        System.out.println("Nu, ta beidzot!!! :)");*/
+
+
+
     }
 }
