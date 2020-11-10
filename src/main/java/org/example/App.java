@@ -10,6 +10,7 @@ public class App {
     public static void main(String[] args) throws IOException {
 
         SubtractionCalculator calc = new SubtractionCalculator();
+
         System.out.println(calc.getFirstNumber());
         System.out.println(calc.getSecondNumber());
         System.out.println(calc.getResult());

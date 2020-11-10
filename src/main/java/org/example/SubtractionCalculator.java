@@ -1,12 +1,8 @@
 package org.example;
 
-public class SubtractionCalculator extends AdditionCalculator{
+public class SubtractionCalculator extends AbstractCalculator{
 
-    public SubtractionCalculator(){
-        applyOperation();
-    }
-
-    private void applyOperation(){
-        this.result = getFirstNumber() - getSecondNumber();
+    @Override
+   public void calculateExpectedResult(){ this.result = getFirstNumber() - getSecondNumber();
     }
 }
