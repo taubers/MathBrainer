@@ -2,6 +2,8 @@ package org.example;
 
 // The purpose of the App is to teach to calculate numbers in the head - both for kids and adults.
 
+import org.example.calculators.AdditionCalculator;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,13 +11,7 @@ import java.io.InputStreamReader;
 public class App {
     public static void main(String[] args) throws IOException {
 
-        SubtractionCalculator calc = new SubtractionCalculator();
-
-        System.out.println(calc.getFirstNumber());
-        System.out.println(calc.getSecondNumber());
-        System.out.println(calc.getResult());
-
-     /*   AdditionCalculator calculator = new AdditionCalculator();
+        AdditionCalculator calculator = new AdditionCalculator();
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -30,7 +26,7 @@ public class App {
             System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + calculator.getFirstNumber() + " + " + calculator.getSecondNumber() + " ?");
             answer = Integer.parseInt(br.readLine());
         }
-        System.out.println("Nu, ta beidzot!!! :)");*/
+        System.out.println("Nu, ta beidzot!!! :)");
 
 
 
