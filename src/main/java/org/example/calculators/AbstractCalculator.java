@@ -2,7 +2,7 @@ package org.example.calculators;
 
 import java.util.Random;
 
-abstract class AbstractCalculator {
+public abstract class AbstractCalculator {
     Random rand = new Random();
 
     private int firstNumber = rand.nextInt(1000);
@@ -10,20 +10,19 @@ abstract class AbstractCalculator {
     protected int result;
 
     public int getFirstNumber() {
-        return this.firstNumber;
-    }
-    public int getSecondNumber() {
-        return this.secondNumber;
+        return firstNumber;
     }
 
-    public int getResult(){
-        return this.result;
+    public int getSecondNumber() {
+        return secondNumber;
+    }
+
+    public int getResult() {
+        return result;
     }
 
     public abstract void calculateExpectedResult();
 
-
     }
-
 
 
