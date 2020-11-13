@@ -2,14 +2,14 @@ package org.example.calculators;
 
 import java.util.Random;
 
-public abstract class Exercise {
+public abstract class AbstractExercise {
     Random rand = new Random();
 
     private int firstNumber = rand.nextInt(100);
     private int secondNumber = rand.nextInt(100);
     protected int result;
 
-    public Exercise(){
+    public AbstractExercise(){
         calculateExpectedResult();
     }
 

@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        Exercise exercise = new AdditionCalculator();
+        AbstractExercise abstractExercise = new AdditionExercise();
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -20,14 +20,14 @@ public class App {
 
         while(i == 0) {
             System.out.println("Apēķini:\n");
-            System.out.println(exercise.getFirstNumber() + " + " + exercise.getSecondNumber() + " = " + "X\n");
+            System.out.println(abstractExercise.getFirstNumber() + " + " + abstractExercise.getSecondNumber() + " = " + "X\n");
             System.out.println("Cik ir X?");
 
 
             int answer = Integer.parseInt(br.readLine());
 
-            while (answer != exercise.getResult()) {
-                System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + exercise.getFirstNumber() + " + " + exercise.getSecondNumber() + " ?");
+            while (answer != abstractExercise.getResult()) {
+                System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + abstractExercise.getFirstNumber() + " + " + abstractExercise.getSecondNumber() + " ?");
                 answer = Integer.parseInt(br.readLine());
             }
             System.out.println("Yesss, pareizi!!! \n\n");

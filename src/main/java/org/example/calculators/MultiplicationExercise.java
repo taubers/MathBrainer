@@ -1,6 +1,6 @@
 package org.example.calculators;
 
-public class MultiplicationCalculator extends Exercise {
+public class MultiplicationExercise extends AbstractExercise {
 
     @Override
     public void calculateExpectedResult(){
