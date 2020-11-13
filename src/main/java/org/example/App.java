@@ -12,6 +12,9 @@ import java.io.InputStreamReader;
 public class App {
     public static void main(String[] args) throws IOException {
         AbstractExercise abstractExercise = new AdditionExercise();
+        AbstractExercise subtractionExercise = new SubtractionExercise();
+        //AbstractExercise abstractExercise = new DivisionExercise();
+        //AbstractExercise abstractExercise = new MultiplicationExercise();
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -19,6 +22,11 @@ public class App {
         int i = 0;
 
         while(i == 0) {
+            String[] classNames = {"abstractExercise", "subtractionExercise"};
+            int rnd = new Random().nextInt(classNames.length);
+            
+            Class cls = Class.forName(classNames[rnd]);
+            
             abstractExercise.renewExercise();
             System.out.println("Apēķini:\n");
             System.out.println(abstractExercise.getFirstNumber() + " + " + abstractExercise.getSecondNumber() + " = " + "X\n");
