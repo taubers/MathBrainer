@@ -19,6 +19,7 @@ public class App {
         int i = 0;
 
         while(i == 0) {
+            abstractExercise.renewExercise();
             System.out.println("Apēķini:\n");
             System.out.println(abstractExercise.getFirstNumber() + " + " + abstractExercise.getSecondNumber() + " = " + "X\n");
             System.out.println("Cik ir X?");
