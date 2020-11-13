@@ -19,7 +19,7 @@ public class App {
         System.out.println("Apēķini:\n");
         System.out.println(calculator.getFirstNumber() + " + " + calculator.getSecondNumber() + " = " + "X\n");
         System.out.println("Cik ir X?");
-        System.out.println(calculator.getResult());
+
 
         int answer = Integer.parseInt(br.readLine());
 

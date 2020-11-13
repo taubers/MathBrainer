@@ -9,6 +9,10 @@ public abstract class AbstractCalculator {
     private int secondNumber = rand.nextInt(1000);
     protected int result;
 
+    public AbstractCalculator(){
+        calculateExpectedResult();
+    }
+
     public int getFirstNumber() {
         return firstNumber;
     }
@@ -23,6 +27,8 @@ public abstract class AbstractCalculator {
 
     public abstract void calculateExpectedResult();
 
-    }
+
+
+}
 
 
