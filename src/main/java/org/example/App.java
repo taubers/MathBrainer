@@ -5,14 +5,13 @@ package org.example;
 
 import org.example.calculators.*;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        Exercise calculator = new AdditionCalculator();
+        Exercise exercise = new AdditionCalculator();
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -21,14 +20,14 @@ public class App {
 
         while(i == 0) {
             System.out.println("Apēķini:\n");
-            System.out.println(calculator.getFirstNumber() + " + " + calculator.getSecondNumber() + " = " + "X\n");
+            System.out.println(exercise.getFirstNumber() + " + " + exercise.getSecondNumber() + " = " + "X\n");
             System.out.println("Cik ir X?");
 
 
             int answer = Integer.parseInt(br.readLine());
 
-            while (answer != calculator.getResult()) {
-                System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + calculator.getFirstNumber() + " + " + calculator.getSecondNumber() + " ?");
+            while (answer != exercise.getResult()) {
+                System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " + exercise.getFirstNumber() + " + " + exercise.getSecondNumber() + " ?");
                 answer = Integer.parseInt(br.readLine());
             }
             System.out.println("Yesss, pareizi!!! \n\n");
