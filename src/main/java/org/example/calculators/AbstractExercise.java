@@ -5,14 +5,23 @@ import java.util.Random;
 public abstract class AbstractExercise {
     Random rand = new Random();
 
-    private int firstNumber = rand.nextInt(100);
-    private int secondNumber = rand.nextInt(100);
+    protected int firstNumber;
+    protected int secondNumber;
     protected int result;
 
     public AbstractExercise(){
+        firstNumber = getFirstNumber();
+        secondNumber = getSecondNumber();
+        initializeArguments();
         calculateExpectedResult();
+
     }
 
+
+    protected void initializeArguments(){
+        firstNumber = rand.nextInt(100);
+        secondNumber = rand.nextInt(100);
+    }
     public int getFirstNumber() {
         return firstNumber;
     }
