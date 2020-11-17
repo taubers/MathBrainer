@@ -4,15 +4,23 @@ package org.example.calculators;
 public class DivisionExercise extends AbstractExercise {
 
     @Override
-    public void initializeArguments(){
-        firstNumber = 51;
-        secondNumber = 3;
-    }
+    public void initializeArguments() {
+        int a;
+        int b;
+        do {
+            a = rand.nextInt(100 + 1 - 2) + 2;;
+            b = rand.nextInt(100 + 1 - 2) + 2;;
+        } while(a == 0 || b == 0 || a % b != 0 || b >= a);
 
-    @Override
-    public void calculateExpectedResult() {
-        result = getFirstNumber() / getSecondNumber();
-
+            firstNumber = a;
+            secondNumber = b;
     }
+        @Override
+        public void calculateExpectedResult () {
+            result = getFirstNumber() / getSecondNumber();
+        }
+
+
+
 }
 

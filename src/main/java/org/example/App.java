@@ -23,7 +23,6 @@ public class App {
             System.out.println("Apēķini:\n");
             System.out.println(exercise.getFirstNumber() + " / " + exercise.getSecondNumber() + " = " + "X\n");
             System.out.println("Cik ir X?");
-            System.out.println(exercise.getResult());
 
 
             int answer = Integer.parseInt(br.readLine());

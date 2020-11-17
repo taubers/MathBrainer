@@ -10,8 +10,6 @@ public abstract class AbstractExercise {
     protected int result;
 
     public AbstractExercise(){
-        firstNumber = getFirstNumber();
-        secondNumber = getSecondNumber();
         initializeArguments();
         calculateExpectedResult();
 
