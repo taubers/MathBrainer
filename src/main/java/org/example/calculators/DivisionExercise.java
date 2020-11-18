@@ -4,7 +4,7 @@ package org.example.calculators;
 public class DivisionExercise extends AbstractExercise {
 
     @Override
-    public void initializeArguments() {
+   protected void initializeArguments() {
         int a;
         int b;
         do {
@@ -21,6 +21,12 @@ public class DivisionExercise extends AbstractExercise {
         }
 
 
+    @Override
+    public String getOperator(){
+        operator = " / ";
+
+        return operator;
+    }
 
 }
 

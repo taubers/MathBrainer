@@ -7,6 +7,12 @@ public class AdditionExercise extends AbstractExercise {
         result = getFirstNumber() + getSecondNumber();
     }
 
+    @Override
+    public String getOperator(){
+        operator = " + ";
+
+        return operator;
+    }
 
 
 

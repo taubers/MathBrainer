@@ -7,11 +7,13 @@ public abstract class AbstractExercise {
 
     protected int firstNumber;
     protected int secondNumber;
+    protected String operator;
     protected int result;
 
     public AbstractExercise(){
         initializeArguments();
         calculateExpectedResult();
+        getOperator();
 
     }
 
@@ -32,8 +34,9 @@ public abstract class AbstractExercise {
         return result;
     }
 
-    public abstract void calculateExpectedResult();
+    public abstract String getOperator();
 
+    public abstract void calculateExpectedResult();
 
 
 }

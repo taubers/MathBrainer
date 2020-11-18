@@ -6,4 +6,12 @@ public class MultiplicationExercise extends AbstractExercise {
     public void calculateExpectedResult(){
         result = getFirstNumber() * getSecondNumber();
     }
+
+    @Override
+    public String getOperator(){
+        operator = " * ";
+
+        return operator;
+    }
+
 }
