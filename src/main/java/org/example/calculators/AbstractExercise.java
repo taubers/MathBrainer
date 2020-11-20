@@ -4,6 +4,11 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 public abstract class AbstractExercise {
+/*    AbstractExercise additionExercise = new AdditionExercise();
+    AbstractExercise subtractionExercise = new SubtractionExercise();
+    AbstractExercise divisionExercise = new DivisionExercise();
+    AbstractExercise multiplicationExercise = new MultiplicationExercise();*/
+
     Random rand = new Random();
 
     protected int firstNumber;
