@@ -1,5 +1,6 @@
 package org.example.calculators;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 public abstract class AbstractExercise {
@@ -13,8 +14,6 @@ public abstract class AbstractExercise {
     public AbstractExercise(){
         initializeArguments();
         calculateExpectedResult();
-        getOperator();
-
     }
 
 
@@ -34,9 +33,34 @@ public abstract class AbstractExercise {
         return result;
     }
 
-    public abstract String getOperator();
+    public String getOperator(){
+        return operator;
+    };
 
     public abstract void calculateExpectedResult();
+
+    public static AbstractExercise getExercise(){
+        int exercisePicker = new SecureRandom().nextInt(4);
+        AbstractExercise exercise;
+        switch (exercisePicker){
+            case 0:
+                exercise = new AdditionExercise();
+                break;
+            case 1:
+                exercise = new SubtractionExercise();
+                break;
+            case 2:
+                exercise = new DivisionExercise();
+                break;
+            case 3:
+                exercise = new MultiplicationExercise();
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + exercisePicker);
+        }
+
+    return exercise;
+    }
 
 
 }

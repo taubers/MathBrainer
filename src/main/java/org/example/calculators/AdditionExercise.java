@@ -3,19 +3,18 @@ package org.example.calculators;
 public class AdditionExercise extends AbstractExercise {
 
     @Override
-    public void calculateExpectedResult(){
-        result = getFirstNumber() + getSecondNumber();
+    protected void initializeArguments() {
+        firstNumber = rand.nextInt(100 + 1 - 2) + 2;
+        secondNumber = rand.nextInt(100 + 1 - 2) + 2;
+        operator = "+";
     }
 
-    @Override
-    public String getOperator(){
-        operator = " + ";
+        @Override
+        public void calculateExpectedResult () {
+            result = getFirstNumber() + getSecondNumber();
+        }
 
-        return operator;
+
+
     }
 
-
-
-
-
-}
