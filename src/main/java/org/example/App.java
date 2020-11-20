@@ -17,26 +17,25 @@ public class App {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         String expression;
+        int answer;
 
-        do {
+        while (true) {
             AbstractExercise exercise = AbstractExercise.getExercise();
             expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X\n";
-            System.out.println("Apēķini:\n");
-            System.out.println(expression);
-            System.out.println("Cik ir X?");
 
-            int answer = Integer.parseInt(br.readLine());
+            do {
+                System.out.println("Apēķini:\n");
+                System.out.println(expression);
+                System.out.println("Cik ir X?");
 
-            while (answer != exercise.getResult()){
-                System.out.println("Nav pareizi :( Mēģini vēlreiz... \n" + expression);
                 answer = Integer.parseInt(br.readLine());
 
+                if (answer == exercise.getResult()) {
+                    System.out.println("Malacis! Pareizi! :) \n");
+                } else {
+                    System.out.println("Nav pareizi :( Mēģini vēlreiz... \n");
                 }
-            System.out.println("Malacis! Pareizi! :) \n");
-
-            } while (true);
-
-
-
+            } while (answer != exercise.getResult());
         }
+    }
 }
