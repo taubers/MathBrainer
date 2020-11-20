@@ -14,6 +14,7 @@ public class DivisionExercise extends AbstractExercise {
 
             firstNumber = a;
             secondNumber = b;
+            operator = "/";
     }
         @Override
         public void calculateExpectedResult () {
@@ -21,12 +22,6 @@ public class DivisionExercise extends AbstractExercise {
         }
 
 
-    @Override
-    public String getOperator(){
-        operator = " / ";
-
-        return operator;
-    }
 
 }
 

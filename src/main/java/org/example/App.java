@@ -5,10 +5,10 @@ package org.example;
 
 import org.example.calculators.*;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Random;
 
 public class App {
 
@@ -16,38 +16,27 @@ public class App {
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
+        String expression;
 
-        while(true) {
-            AbstractExercise additionExercise = new AdditionExercise();
-            AbstractExercise subtractionExercise = new SubtractionExercise();
-            AbstractExercise divisionExercise = new DivisionExercise();
-            AbstractExercise multiplicationExercise = new MultiplicationExercise();
-
-            AbstractExercise[] exercise = {additionExercise, subtractionExercise,divisionExercise,multiplicationExercise};
-            int randomClassIndex = new Random().nextInt(exercise.length);
-
+        do {
+            AbstractExercise exercise = AbstractExercise.getExercise();
+            expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X\n";
             System.out.println("Apēķini:\n");
-            System.out.println(exercise[randomClassIndex].getFirstNumber() +
-                    exercise[randomClassIndex].getOperator() +
-                    exercise[randomClassIndex].getSecondNumber() + " = " + "X\n");
+            System.out.println(expression);
             System.out.println("Cik ir X?");
-
 
             int answer = Integer.parseInt(br.readLine());
 
-            while (answer != exercise[randomClassIndex].getResult()) {
-                System.out.println("\nNav labi! Mēģini vēlreiz! \n\n" + "Cik ir " +
-                        exercise[randomClassIndex].getFirstNumber() +
-                        exercise[randomClassIndex].getOperator() +
-                        exercise[randomClassIndex].getSecondNumber() + " ?");
+            while (answer != exercise.getResult()){
+                System.out.println("Nav pareizi :( Mēģini vēlreiz... \n" + expression);
                 answer = Integer.parseInt(br.readLine());
-            }
-            System.out.println("Yesss, pareizi!!! \n\n");
+
+                }
+            System.out.println("Malacis! Pareizi! :) \n");
+
+            } while (true);
+
+
 
         }
-
-
-
-
-    }
 }

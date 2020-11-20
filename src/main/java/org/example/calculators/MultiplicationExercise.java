@@ -2,9 +2,11 @@ package org.example.calculators;
 
 public class MultiplicationExercise extends AbstractExercise {
 
+    @Override
     protected void initializeArguments() {
        firstNumber = rand.nextInt(20 + 1 - 2) + 2;
        secondNumber = rand.nextInt(20 + 1 - 2) + 2;
+       operator = "*";
     }
 
     @Override
@@ -12,11 +14,5 @@ public class MultiplicationExercise extends AbstractExercise {
         result = getFirstNumber() * getSecondNumber();
     }
 
-    @Override
-    public String getOperator(){
-        operator = " * ";
-
-        return operator;
-    }
 
 }
