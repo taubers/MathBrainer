@@ -26,7 +26,13 @@ public class App {
             do {
                 System.out.println("Apēķini:\n");
                 System.out.println(expression);
+                if (exercise.getOperator().equals("/")){
+                    DivisionExercise counter = new DivisionExercise();
+                    System.out.println("(Vienādojums uzģenerēts ar " + counter.divisionNumberGeneratorCounter + " mēģinājumiem) \n");
+                }
+
                 System.out.println("Cik ir X?");
+
 
                 answer = Integer.parseInt(br.readLine());
 

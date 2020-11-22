@@ -4,10 +4,6 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 public abstract class AbstractExercise {
-/*    AbstractExercise additionExercise = new AdditionExercise();
-    AbstractExercise subtractionExercise = new SubtractionExercise();
-    AbstractExercise divisionExercise = new DivisionExercise();
-    AbstractExercise multiplicationExercise = new MultiplicationExercise();*/
 
     Random rand = new Random();
 
@@ -15,6 +11,7 @@ public abstract class AbstractExercise {
     protected int secondNumber;
     protected String operator;
     protected int result;
+    public int divisionNumberGeneratorCounter = 0;
 
     public AbstractExercise(){
         initializeArguments();
