@@ -16,12 +16,12 @@ public class App {
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
-        String expression;
-        int answer;
 
         while (true) {
+            int answer;
+
             AbstractExercise exercise = AbstractExercise.getExercise();
-            expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X\n";
+            String expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X\n";
 
             do {
                 System.out.println("Apēķini:\n");

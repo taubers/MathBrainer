@@ -12,17 +12,20 @@ public abstract class AbstractExercise {
     protected String operator;
     protected int result;
     public int divisionNumberGeneratorCounter = 0;
+    protected int min = 2;
+    protected int max = 100;
 
-    public AbstractExercise(){
+    public AbstractExercise() {
         initializeArguments();
         calculateExpectedResult();
     }
 
 
-    protected void initializeArguments(){
-        firstNumber = rand.nextInt(100);
-        secondNumber = rand.nextInt(100);
+    protected void initializeArguments() {
+        firstNumber = rand.nextInt(max - min) + min;
+        secondNumber = rand.nextInt(max - min) + min;
     }
+
     public int getFirstNumber() {
         return firstNumber;
     }
@@ -35,36 +38,29 @@ public abstract class AbstractExercise {
         return result;
     }
 
-    public String getOperator(){
+    public String getOperator() {
         return operator;
-    };
+    }
 
     public abstract void calculateExpectedResult();
 
-    public static AbstractExercise getExercise(){
+    // will be deleted later
+    public static AbstractExercise getExercise() {
         int exercisePicker = new SecureRandom().nextInt(4);
-        AbstractExercise exercise;
-        switch (exercisePicker){
+        switch (exercisePicker) {
             case 0:
-                exercise = new AdditionExercise();
-                break;
+                return new AdditionExercise();
             case 1:
-                exercise = new SubtractionExercise();
-                break;
+                return new SubtractionExercise();
             case 2:
-                exercise = new DivisionExerciseSimplified();
-                break;
+                return new DivisionExerciseSimplified();
             case 3:
-                exercise = new MultiplicationExercise();
-                break;
+                return new MultiplicationExercise();
             default:
                 throw new IllegalStateException("Unexpected value: " + exercisePicker);
         }
 
-    return exercise;
     }
-
-
 }
 
 

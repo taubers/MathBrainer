@@ -4,8 +4,9 @@ public class DivisionExerciseSimplified extends AbstractExercise{
 
     @Override
     protected void initializeArguments() {
-        secondNumber = rand.nextInt(20 + 1 - 2) + 2;
-        result = rand.nextInt(20 + 1 - 2) + 2;
+        max = 20;
+        secondNumber = rand.nextInt(max - min) + min;
+        result = rand.nextInt(max - min) + min;
         firstNumber = secondNumber * result;
         operator = "/";
     }

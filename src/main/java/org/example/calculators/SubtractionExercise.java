@@ -4,8 +4,8 @@ public class SubtractionExercise extends AbstractExercise {
 
     @Override
     protected void initializeArguments() {
-        firstNumber = rand.nextInt(100 + 1 - 2) + 2;
-        secondNumber = rand.nextInt(100 + 1 - 2) + 2;
+        firstNumber = rand.nextInt(max - min) + min;
+        secondNumber = rand.nextInt(max - min) + min;
         operator = "-";
     }
 
