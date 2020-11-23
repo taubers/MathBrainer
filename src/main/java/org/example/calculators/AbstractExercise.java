@@ -52,7 +52,7 @@ public abstract class AbstractExercise {
                 exercise = new SubtractionExercise();
                 break;
             case 2:
-                exercise = new DivisionExercise();
+                exercise = new DivisionExerciseSimplified();
                 break;
             case 3:
                 exercise = new MultiplicationExercise();
