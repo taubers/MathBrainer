@@ -11,7 +11,6 @@ public abstract class AbstractExercise {
     protected int secondNumber;
     protected String operator;
     protected int result;
-    public int divisionNumberGeneratorCounter = 0;
     protected static final int min = 2;
     protected static final int max = 100;
 

@@ -13,7 +13,7 @@ public class ExerciseFactory {
             case 1:
                 return new SubtractionExercise();
             case 2:
-                return new SimplifiedDivisionExercise();
+                return new DivisionExercise();
             case 3:
                 return new MultiplicationExercise();
             default:
