@@ -7,8 +7,6 @@ public class DivisionExercise extends AbstractExercise {
     protected void initializeArguments() {
         int a;
         int b;
-        max = 20;
-
         do {
             a = rand.nextInt(max - min) + min;
             b = rand.nextInt(max - min) + min;
