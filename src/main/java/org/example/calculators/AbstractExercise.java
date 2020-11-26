@@ -44,23 +44,6 @@ public abstract class AbstractExercise {
 
     public abstract void calculateExpectedResult();
 
-    // will be deleted later
-    public static AbstractExercise getExercise() {
-        int exercisePicker = new SecureRandom().nextInt(4);
-        switch (exercisePicker) {
-            case 0:
-                return new AdditionExercise();
-            case 1:
-                return new SubtractionExercise();
-            case 2:
-                return new DivisionExerciseSimplified();
-            case 3:
-                return new MultiplicationExercise();
-            default:
-                throw new IllegalStateException("Unexpected value: " + exercisePicker);
-        }
-
-    }
 }
 
 

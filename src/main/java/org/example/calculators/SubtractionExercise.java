@@ -10,7 +10,7 @@ public class SubtractionExercise extends AbstractExercise {
     }
 
     @Override
-    public void calculateExpectedResult(){
+    public void calculateExpectedResult() {
         result = getFirstNumber() - getSecondNumber();
     }
 

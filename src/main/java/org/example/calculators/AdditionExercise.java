@@ -9,12 +9,11 @@ public class AdditionExercise extends AbstractExercise {
         operator = "+";
     }
 
-        @Override
-        public void calculateExpectedResult () {
-            result = getFirstNumber() + getSecondNumber();
-        }
-
-
-
+    @Override
+    public void calculateExpectedResult() {
+        result = getFirstNumber() + getSecondNumber();
     }
+
+
+}
 

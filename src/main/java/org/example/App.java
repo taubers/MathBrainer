@@ -19,22 +19,14 @@ public class App {
 
         while (true) {
             int answer;
+            AbstractExercise exercise = ExerciseFactory.getExercise();
 
-            AbstractExercise exercise = AbstractExercise.getExercise();
             String expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X\n";
 
             do {
                 System.out.println("Apēķini:\n");
                 System.out.println(expression);
-
-                //temporary counter
-                /*if (exercise.getOperator().equals("/")){
-                    DivisionExercise counter = new DivisionExercise();
-                    System.out.println("(Vienādojums uzģenerēts ar " + counter.divisionNumberGeneratorCounter + " mēģinājumiem) \n");
-                }*/
-
                 System.out.println("Cik ir X?");
-
 
                 answer = Integer.parseInt(br.readLine());
 

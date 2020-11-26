@@ -4,13 +4,13 @@ public class MultiplicationExercise extends AbstractExercise {
 
     @Override
     protected void initializeArguments() {
-       firstNumber = rand.nextInt(max - min) + min;
-       secondNumber = rand.nextInt(max - min) + min;
-       operator = "*";
+        firstNumber = rand.nextInt(max - min) + min;
+        secondNumber = rand.nextInt(max - min) + min;
+        operator = "*";
     }
 
     @Override
-    public void calculateExpectedResult(){
+    public void calculateExpectedResult() {
         result = getFirstNumber() * getSecondNumber();
     }
 
