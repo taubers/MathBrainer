@@ -17,6 +17,7 @@ public class App {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
+
         while (true) {
             int answer;
             AbstractExercise exercise = ExerciseFactory.getExercise();
