@@ -1,6 +1,5 @@
 package org.example.calculators;
 
-import java.security.SecureRandom;
 import java.util.Random;
 
 public abstract class AbstractExercise {
@@ -11,19 +10,22 @@ public abstract class AbstractExercise {
     protected int secondNumber;
     protected String operator;
     protected int result;
-    protected static final int min = 2;
-    protected static final int max = 100;
+    protected static final int MIN = 2;
+    protected static final int MAX = 100;
 
     public AbstractExercise() {
         initializeArguments();
+        initializeOperator();
         calculateExpectedResult();
     }
 
 
     protected void initializeArguments() {
-        firstNumber = rand.nextInt(max - min) + min;
-        secondNumber = rand.nextInt(max - min) + min;
+        firstNumber = rand.nextInt(MAX - MIN) + MIN;
+        secondNumber = rand.nextInt(MAX - MIN) + MIN;
     }
+
+    protected abstract void initializeOperator();
 
     public int getFirstNumber() {
         return firstNumber;
@@ -41,7 +43,7 @@ public abstract class AbstractExercise {
         return operator;
     }
 
-    public abstract void calculateExpectedResult();
+    protected abstract void calculateExpectedResult();
 
 }
 

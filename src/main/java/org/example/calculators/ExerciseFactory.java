@@ -1,7 +1,5 @@
 package org.example.calculators;
 
-// under construction
-
 import java.security.SecureRandom;
 
 public class ExerciseFactory {

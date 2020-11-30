@@ -7,28 +7,42 @@ import java.util.Date;
 
 
 public class DivisionExercise extends AbstractExercise {
+    Date date = new Date();
+    BufferedWriter bw;
+    int counter = 0;
 
 
     @Override
     protected void initializeArguments() {
-        Date date = new Date();
-        BufferedWriter bw;
+
 
         int a;
         int b;
-        int counter = 0;
+
 
         do {
 
-            a = rand.nextInt(max - min) + min;
-            b = rand.nextInt(max - min) + min;
+            a = rand.nextInt(MAX - MIN) + MIN;
+            b = rand.nextInt(MAX - MIN) + MIN;
             counter++;
         } while (a == 0 || b == 0 || a % b != 0 || b >= a);
 
         firstNumber = a;
         secondNumber = b;
-        operator = "/";
 
+    }
+
+    @Override
+    protected void initializeOperator() {
+        operator = "/";
+    }
+
+    @Override
+    public void calculateExpectedResult() {
+        result = getFirstNumber() / getSecondNumber();
+    }
+
+    private void logRandomTrials(){
         System.out.println("\nVienādojums uzģenerēts ar " + counter + " mēģinājumiem!");
 
         //Operations to store Random trials of generating valid numbers for division into a text file
@@ -41,10 +55,7 @@ public class DivisionExercise extends AbstractExercise {
         }
     }
 
-    @Override
-    public void calculateExpectedResult() {
-        result = getFirstNumber() / getSecondNumber();
-    }
+
 
 }
 
