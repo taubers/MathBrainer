@@ -6,12 +6,13 @@ public abstract class AbstractExercise {
 
     Random rand = new Random();
 
+    protected static final int MIN = 2;
+    protected static final int MAX = 100;
     protected int firstNumber;
     protected int secondNumber;
     protected String operator;
     protected int result;
-    protected static final int MIN = 2;
-    protected static final int MAX = 100;
+
 
     public AbstractExercise() {
         initializeArguments();
