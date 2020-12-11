@@ -55,8 +55,8 @@ public class MathBrainerController {
 
     @FXML
     private void submitWithEnterKey(ActionEvent event) {
-        enterAnswerField.setOnKeyPressed(event1 -> {
-            if (event1.getCode() == KeyCode.ENTER) {
+        enterAnswerField.setOnKeyPressed(enterKeyPressed -> {
+            if (enterKeyPressed.getCode() == KeyCode.ENTER) {
                 checkAnswerButton.fire();
             }
         });
