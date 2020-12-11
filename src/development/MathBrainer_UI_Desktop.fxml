@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="development.MathBrainerController">
+   <center>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="showQuestionLabel" alignment="CENTER" contentDisplay="CENTER" text="Aprēķini &quot;X&quot;:">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="displayExerciseField" alignment="CENTER" editable="false" focusTraversable="false">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin></TextField>
+            <TextField fx:id="enterAnswerField" alignment="CENTER" onAction="#submitWithEnterKey" promptText="Tava atbilde">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin></TextField>
+            <Button fx:id="checkAnswerButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#checkAnswer" text="Pārbaudīt">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin></Button>
+            <Label fx:id="displayOutputMessageField">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
