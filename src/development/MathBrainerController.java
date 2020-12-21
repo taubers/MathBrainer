@@ -11,8 +11,45 @@ import javafx.scene.paint.Color;
 
 public class MathBrainerController {
 
-    AbstractExercise exercise = ExerciseFactory.getExercise();
-    String expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X";
+
+    private enum State {SOLVING, SOLVED}
+
+    State solutionStatus;
+    int answer;
+
+    private void statusAction() {
+        switch (solutionStatus) {
+            case SOLVING -> {
+                while (true) {
+                    AbstractExercise exercise = ExerciseFactory.getExercise();
+                    String expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X";
+                    try {
+                        do {
+                            displayExerciseField.setText(expression);
+                            answer = Integer.parseInt(enterAnswerField.getText());
+                            if (answer != exercise.getResult()) {
+                                displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
+                                displayOutputMessageField.setTextFill(Color.web("red"));
+                            }
+                        } while (answer != exercise.getResult());
+                    } catch (NumberFormatException e) {
+                        displayOutputMessageField.setText("Lūdzu ievadi tikai skaitļus\n");
+                        displayOutputMessageField.setTextFill(Color.web("black"));
+                    }
+                }
+            }
+
+            case SOLVED -> {
+                nextExerciseButton.setVisible(true);
+                enterAnswerField.setManaged(false);
+                displayOutputMessageField.setText("Malacis! Pareizi! :) \n");
+                displayOutputMessageField.setTextFill(Color.web("green"));
+
+            }
+
+        }
+    }
+
 
     @FXML
     private Label showQuestionLabel;
@@ -27,6 +64,9 @@ public class MathBrainerController {
     @FXML
     private Button checkAnswerButton;
 
+    @FXML
+    private Button nextExerciseButton;
+
 
     @FXML
     private Label displayOutputMessageField;
@@ -34,22 +74,13 @@ public class MathBrainerController {
 
     @FXML
     private void checkAnswer(ActionEvent checkAnswer) {
-        try {
-            int answer = Integer.parseInt(enterAnswerField.getText());
+    //event needed
 
-            if (answer == exercise.getResult()) {
-                displayOutputMessageField.setText("Malacis! Pareizi! :) \n");
-                displayOutputMessageField.setTextFill(Color.web("green"));
-                checkAnswerButton.setText("Nākamais uzdevums");
-            } else {
-                displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
-                displayOutputMessageField.setTextFill(Color.web("red"));
+    }
 
-            }
-        } catch (NumberFormatException e) {
-            displayOutputMessageField.setText("Lūdzu ievadi tikai skaitļus\n");
-            displayOutputMessageField.setStyle("-fx-text-inner-color: red");
-        }
+    @FXML
+    private void nextExercise(ActionEvent nextExercise){
+    //event needed
     }
 
 
@@ -65,11 +96,13 @@ public class MathBrainerController {
 
     public void initialize() {
 
-        displayExerciseField.setText(expression);
+        nextExerciseButton.setVisible(false);
 
 
     }
 
+
 }
+
 
 
