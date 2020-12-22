@@ -32,7 +32,6 @@ public class MathBrainerController {
 
             }
 
-
             case SOLVED -> {
                 nextExerciseButton.setVisible(true);
                 checkAnswerButton.setVisible(false);
