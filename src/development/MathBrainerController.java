@@ -21,15 +21,21 @@ public class MathBrainerController {
     private void render() {
         switch (solutionStatus) {
             case SOLVING -> {
-                AbstractExercise exercise = ExerciseFactory.getExercise();
+                this.exercise = ExerciseFactory.getExercise();
                 expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X";
                 displayExerciseField.setText(expression);
+                nextExerciseButton.setVisible(false);
+                checkAnswerButton.setVisible(true);
+                enterAnswerField.clear();
+                enterAnswerField.setManaged(true);
+                displayOutputMessageField.setText("");
 
             }
 
 
             case SOLVED -> {
                 nextExerciseButton.setVisible(true);
+                checkAnswerButton.setVisible(false);
                 enterAnswerField.setManaged(false);
                 displayOutputMessageField.setText("Malacis! Pareizi! :) \n");
                 displayOutputMessageField.setTextFill(Color.web("green"));
