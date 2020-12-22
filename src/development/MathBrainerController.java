@@ -75,14 +75,13 @@ public class MathBrainerController {
         if (answer != exercise.getResult()) {
             displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
             displayOutputMessageField.setTextFill(Color.web("red"));
-        }
-        else {
+        } else {
             solutionStatus = State.SOLVED;
             render();
         }
 
 
-        }
+    }
 
 
     @FXML
