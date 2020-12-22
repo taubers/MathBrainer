@@ -72,12 +72,12 @@ public class MathBrainerController {
             return;
         }
 
-        if (answer != exercise.getResult()) {
-            displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
-            displayOutputMessageField.setTextFill(Color.web("red"));
-        } else {
+        if (answer == exercise.getResult()) {
             solutionStatus = State.SOLVED;
             render();
+        } else {
+            displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
+            displayOutputMessageField.setTextFill(Color.web("red"));
         }
 
 
