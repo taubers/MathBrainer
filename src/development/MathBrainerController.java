@@ -14,8 +14,7 @@ public class MathBrainerController {
 
     private enum State {SOLVING, SOLVED}
 
-    State solutionStatus = State.SOLVING;
-    int answer;
+    State solutionStatus;
     String expression;
     AbstractExercise exercise;
 
@@ -64,23 +63,25 @@ public class MathBrainerController {
 
     @FXML
     private void checkAnswer(ActionEvent checkAnswer) {
+        int answer;
         try {
             answer = Integer.parseInt(enterAnswerField.getText());
             if (answer != exercise.getResult()) {
                 displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
                 displayOutputMessageField.setTextFill(Color.web("red"));
             }
+            else {
+                solutionStatus = State.SOLVED;
+                render();
+            }
         } catch (NumberFormatException e) {
             displayOutputMessageField.setText("Lūdzu ievadi tikai skaitļus\n");
             displayOutputMessageField.setTextFill(Color.web("black"));
         }
 
-        if (answer == exercise.getResult()) {
-            solutionStatus = State.SOLVED;
-            render();
+
         }
 
-    }
 
     @FXML
     private void nextExercise(ActionEvent nextExercise) {
@@ -100,6 +101,7 @@ public class MathBrainerController {
 
 
     public void initialize() {
+        solutionStatus = State.SOLVING;
         render();
         nextExerciseButton.setVisible(false);
 
