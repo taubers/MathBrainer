@@ -66,17 +66,19 @@ public class MathBrainerController {
         int answer;
         try {
             answer = Integer.parseInt(enterAnswerField.getText());
-            if (answer != exercise.getResult()) {
-                displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
-                displayOutputMessageField.setTextFill(Color.web("red"));
-            }
-            else {
-                solutionStatus = State.SOLVED;
-                render();
-            }
         } catch (NumberFormatException e) {
             displayOutputMessageField.setText("Lūdzu ievadi tikai skaitļus\n");
             displayOutputMessageField.setTextFill(Color.web("black"));
+            return;
+        }
+
+        if (answer != exercise.getResult()) {
+            displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
+            displayOutputMessageField.setTextFill(Color.web("red"));
+        }
+        else {
+            solutionStatus = State.SOLVED;
+            render();
         }
 
 
