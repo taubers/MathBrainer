@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -22,7 +23,7 @@ public class MathBrainerController {
         switch (solutionStatus) {
             case SOLVING -> {
                 this.exercise = ExerciseFactory.getExercise();
-                expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = " + "X";
+                expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = ";
                 displayExerciseField.setText(expression);
                 nextExerciseButton.setVisible(false);
                 checkAnswerButton.setVisible(true);
@@ -44,6 +45,8 @@ public class MathBrainerController {
         }
     }
 
+    @FXML
+    private Slider levelSlider;
 
     @FXML
     private Label showQuestionLabel;
@@ -99,9 +102,13 @@ public class MathBrainerController {
     @FXML
     private void submitWithEnterKey(ActionEvent event) {
         enterAnswerField.setOnKeyPressed(enterKeyPressed -> {
-            if (enterKeyPressed.getCode() == KeyCode.ENTER) {
+            if (State.SOLVING.equals(solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER) {
                 checkAnswerButton.fire();
-            }
+                }
+            else if (State.SOLVED.equals(solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER){
+                    nextExerciseButton.fire();
+                }
+
         });
     }
 
@@ -109,9 +116,6 @@ public class MathBrainerController {
     public void initialize() {
         solutionStatus = State.SOLVING;
         render();
-        nextExerciseButton.setVisible(false);
-
-
     }
 
 

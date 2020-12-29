@@ -35,14 +35,14 @@ public class DivisionExercise extends AbstractExercise {
 
 
         this.finish = System.nanoTime();
-        logRandomTrials(counter);
+        //logRandomTrials(counter);
 
     }
 
 
     @Override
     protected void initializeOperator() {
-        operator = "/";
+        operator = "÷";
     }
 
     @Override
@@ -50,7 +50,7 @@ public class DivisionExercise extends AbstractExercise {
         result = getFirstNumber() / getSecondNumber();
     }
 
-    private void logRandomTrials(int counter) {
+    /*private void logRandomTrials(int counter) {
         Date date = new Date();
         BufferedWriter bw;
         DecimalFormat df = new DecimalFormat("#.#########");
@@ -68,7 +68,7 @@ public class DivisionExercise extends AbstractExercise {
         } catch (IOException exception) {
             System.err.println("Could not process the operation" + exception.getMessage());
         }
-    }
+    }*/
 }
 
 

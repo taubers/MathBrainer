@@ -4,7 +4,7 @@ public class MultiplicationExercise extends AbstractExercise {
 
     @Override
     protected void initializeOperator() {
-        operator = "*";
+        operator = "×";
     }
 
     @Override
