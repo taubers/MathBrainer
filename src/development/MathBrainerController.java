@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
+import javax.script.Bindings;
+import java.math.RoundingMode;
+
 
 public class MathBrainerController {
 
@@ -50,6 +53,15 @@ public class MathBrainerController {
 
     @FXML
     private Label showQuestionLabel;
+
+    @FXML
+    private Label levelName;
+
+    @FXML
+    private Label showCorrectAnswerLabel;
+
+    @FXML
+    private Label showWrongAnswerLabel;
 
     @FXML
     private TextField displayExerciseField;
@@ -104,10 +116,9 @@ public class MathBrainerController {
         enterAnswerField.setOnKeyPressed(enterKeyPressed -> {
             if (State.SOLVING.equals(solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER) {
                 checkAnswerButton.fire();
-                }
-            else if (State.SOLVED.equals(solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER){
-                    nextExerciseButton.fire();
-                }
+            } else if (State.SOLVED.equals(solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER) {
+                nextExerciseButton.fire();
+            }
 
         });
     }
@@ -116,6 +127,34 @@ public class MathBrainerController {
     public void initialize() {
         solutionStatus = State.SOLVING;
         render();
+
+        levelSlider.valueProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    if (levelSlider.getValue() == 1) {
+                        levelName.setText("Bēbis");
+                    }
+                    if (levelSlider.getValue() == 2) {
+                        levelName.setText("Pirmklasnieks");
+                    }
+                    if (levelSlider.getValue() == 3) {
+                        levelName.setText("Vidusskolnieks");
+                    }
+                    if (levelSlider.getValue() == 4) {
+                        levelName.setText("Students");
+                    }
+                    if (levelSlider.getValue() == 5) {
+                        levelName.setText("Bakalaurs");
+                    }
+                    if (levelSlider.getValue() == 6) {
+                        levelName.setText("Maģistrs");
+                    }
+                    if (levelSlider.getValue() == 7) {
+                        levelName.setText("Einšteins");
+                    }
+
+
+                }
+        );
     }
 
 
