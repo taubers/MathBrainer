@@ -31,7 +31,7 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <StackPane layoutX="306.0" layoutY="-9.0" prefHeight="137.0" prefWidth="254.0">
+      <StackPane layoutX="306.0" layoutY="27.0" prefHeight="65.0" prefWidth="254.0">
          <children>
             <Button fx:id="checkAnswerButton" mnemonicParsing="false" onAction="#checkAnswer" prefHeight="45.0" prefWidth="225.5" text="Pārbaudīt" textAlignment="CENTER">
                <font>
@@ -75,6 +75,11 @@
          </font>
       </Label>
       <Label layoutX="412.0" layoutY="165.0" text="Līmenis" underline="true" />
+      <Label fx:id="showCountdownLabel" alignment="CENTER" layoutX="418.0" layoutY="92.0" text="10" textFill="#d01a1a">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
    <padding>
       <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />

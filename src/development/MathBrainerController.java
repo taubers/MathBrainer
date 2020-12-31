@@ -1,5 +1,6 @@
 package development;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,8 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
-import javax.script.Bindings;
-import java.math.RoundingMode;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MathBrainerController {
@@ -21,8 +22,10 @@ public class MathBrainerController {
     State solutionStatus;
     String expression;
     AbstractExercise exercise;
+    int answer;
     int correctAnswerCounter;
     int wrongAnswerCounter;
+    int counter = 10;
 
 
     private void render() {
@@ -36,7 +39,6 @@ public class MathBrainerController {
                 enterAnswerField.clear();
                 enterAnswerField.setManaged(true);
                 displayOutputMessageField.setText("");
-
             }
 
             case SOLVED -> {
@@ -51,11 +53,34 @@ public class MathBrainerController {
         }
     }
 
+    public void setTimer() {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (counter > 0) {
+                    //Platform.setImplicitExit(false);
+                    Platform.runLater(() -> showCountdownLabel.setText(String.valueOf(counter)));
+                    counter--;
+                    if (answer == exercise.getResult()){
+                        timer.cancel();
+                    }
+                } else {
+                    timer.cancel();
+                    counter = 10;
+                }
+            }
+        }, 1000, 1000);
+    }
+
     @FXML
     private Slider levelSlider;
 
     @FXML
     private Label showQuestionLabel;
+
+    @FXML
+    private Label showCountdownLabel;
 
     @FXML
     private Label levelName;
@@ -86,7 +111,6 @@ public class MathBrainerController {
 
     @FXML
     private void checkAnswer(ActionEvent checkAnswer) {
-        int answer;
         try {
             answer = Integer.parseInt(enterAnswerField.getText());
         } catch (NumberFormatException e) {
@@ -115,6 +139,8 @@ public class MathBrainerController {
     private void nextExercise(ActionEvent nextExercise) {
         solutionStatus = State.SOLVING;
         render();
+        counter = 10;
+        setTimer();
     }
 
 
@@ -134,6 +160,9 @@ public class MathBrainerController {
     public void initialize() {
         solutionStatus = State.SOLVING;
         render();
+        setTimer();
+
+
 
         levelSlider.valueProperty().addListener(
                 (observable, oldValue, newValue) -> {
