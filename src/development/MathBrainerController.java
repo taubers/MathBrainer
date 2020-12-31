@@ -21,6 +21,9 @@ public class MathBrainerController {
     State solutionStatus;
     String expression;
     AbstractExercise exercise;
+    int correctAnswerCounter;
+    int wrongAnswerCounter;
+
 
     private void render() {
         switch (solutionStatus) {
@@ -93,9 +96,13 @@ public class MathBrainerController {
         }
 
         if (answer == exercise.getResult()) {
+            correctAnswerCounter++;
+            showCorrectAnswerLabel.setText(String.valueOf(correctAnswerCounter));
             solutionStatus = State.SOLVED;
             render();
         } else {
+            wrongAnswerCounter++;
+            showWrongAnswerLabel.setText(String.valueOf(wrongAnswerCounter));
             displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
             displayOutputMessageField.setTextFill(Color.web("red"));
         }
@@ -143,10 +150,10 @@ public class MathBrainerController {
                         levelName.setText("Students");
                     }
                     if (levelSlider.getValue() == 5) {
-                        levelName.setText("Bakalaurs");
+                        levelName.setText("Profesionālis");
                     }
                     if (levelSlider.getValue() == 6) {
-                        levelName.setText("Maģistrs");
+                        levelName.setText("Skolotājs");
                     }
                     if (levelSlider.getValue() == 7) {
                         levelName.setText("Einšteins");
