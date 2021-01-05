@@ -12,6 +12,7 @@ public abstract class AbstractExercise {
     protected int secondNumber;
     protected String operator;
     protected int result;
+    protected int level;
 
 
     public AbstractExercise() {

@@ -92,7 +92,7 @@ public class MathBrainerController {
     private Label showWrongAnswerLabel;
 
     @FXML
-    private TextField displayExerciseField;
+    private Label displayExerciseField;
 
     @FXML
     private TextField enterAnswerField;
