@@ -1,4 +1,10 @@
-package development;
+package Calculators;
+
+import Calculators.AdditionExercise;
+import Calculators.DivisionExercise;
+import Calculators.MultiplicationExercise;
+import Calculators.SubtractionExercise;
+import development.AbstractExercise;
 
 import java.security.SecureRandom;
 

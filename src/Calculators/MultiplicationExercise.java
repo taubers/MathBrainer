@@ -1,4 +1,6 @@
-package development;
+package Calculators;
+
+import development.AbstractExercise;
 
 public class MultiplicationExercise extends AbstractExercise {
 

@@ -1,5 +1,6 @@
 package development;
 
+import Calculators.ExerciseFactory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,59 +20,11 @@ public class MathBrainerController {
 
     private enum State {SOLVING, SOLVED}
 
-    State solutionStatus;
-    String expression;
-    AbstractExercise exercise;
-    int answer;
-    int correctAnswerCounter;
-    int wrongAnswerCounter;
-    int counter = 10;
-
-
-    private void render() {
-        switch (solutionStatus) {
-            case SOLVING -> {
-                this.exercise = ExerciseFactory.getExercise();
-                expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = ";
-                displayExerciseField.setText(expression);
-                nextExerciseButton.setVisible(false);
-                checkAnswerButton.setVisible(true);
-                enterAnswerField.clear();
-                enterAnswerField.setManaged(true);
-                displayOutputMessageField.setText("");
-            }
-
-            case SOLVED -> {
-                nextExerciseButton.setVisible(true);
-                checkAnswerButton.setVisible(false);
-                enterAnswerField.setManaged(false);
-                displayOutputMessageField.setText("Malacis! Pareizi! :) \n");
-                displayOutputMessageField.setTextFill(Color.web("green"));
-
-            }
-
-        }
-    }
-
-    public void setTimer() {
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (counter > 0) {
-                    //Platform.setImplicitExit(false);
-                    Platform.runLater(() -> showCountdownLabel.setText(String.valueOf(counter)));
-                    counter--;
-                    if (answer == exercise.getResult()){
-                        timer.cancel();
-                    }
-                } else {
-                    timer.cancel();
-                    counter = 10;
-                }
-            }
-        }, 1000, 1000);
-    }
+    private State solutionStatus;
+    private AbstractExercise exercise;
+    private int correctAnswerCounter;
+    private int wrongAnswerCounter;
+    private static int ticksLeft; // doesn't let me set "final" due to COUNTER--;
 
     @FXML
     private Slider levelSlider;
@@ -108,9 +61,57 @@ public class MathBrainerController {
     @FXML
     private Label displayOutputMessageField;
 
+    private void render() {
+        String expression;
+        switch (solutionStatus) {
+            case SOLVING -> {
+                this.exercise = ExerciseFactory.getExercise();
+                expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = ";
+                displayExerciseField.setText(expression);
+                nextExerciseButton.setVisible(false);
+                checkAnswerButton.setVisible(true);
+                enterAnswerField.clear();
+                enterAnswerField.setManaged(true);
+                displayOutputMessageField.setText("");
+            }
+
+            case SOLVED -> {
+                nextExerciseButton.setVisible(true);
+                checkAnswerButton.setVisible(false);
+                enterAnswerField.setManaged(false);
+                displayOutputMessageField.setText("Malacis! Pareizi! :) \n");
+                displayOutputMessageField.setTextFill(Color.web("green"));
+
+            }
+
+        }
+    }
+
+    private void setTimer() {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (solutionStatus == State.SOLVING) {
+                    //Platform.setImplicitExit(false);
+                    Platform.runLater(() -> showCountdownLabel.setText(String.valueOf(ticksLeft)));
+                        ticksLeft--;
+                        if(ticksLeft ==0){
+                            timer.cancel();
+                        }
+                }
+                if (solutionStatus == State.SOLVED){
+                    timer.cancel();
+                }
+            }
+
+        }, 1000, 1000);
+    }
+
 
     @FXML
     private void checkAnswer(ActionEvent checkAnswer) {
+        int answer;
         try {
             answer = Integer.parseInt(enterAnswerField.getText());
         } catch (NumberFormatException e) {
@@ -137,10 +138,7 @@ public class MathBrainerController {
 
     @FXML
     private void nextExercise(ActionEvent nextExercise) {
-        solutionStatus = State.SOLVING;
-        render();
-        counter = 10;
-        setTimer();
+       initialize();
     }
 
 
@@ -158,9 +156,11 @@ public class MathBrainerController {
 
 
     public void initialize() {
+        ticksLeft = 10;
         solutionStatus = State.SOLVING;
         render();
         setTimer();
+
 
 
 

@@ -1,4 +1,8 @@
-package development;
+package Calculators;
+
+import development.AbstractExercise;
+
+
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -9,13 +13,13 @@ import java.util.Date;
 
 
 public class DivisionExercise extends AbstractExercise {
-    long start;
-    long finish;
+    //long start;
+    //long finish;
 
     @Override
     protected void initializeArguments() {
-        this.start = System.nanoTime();
-        int counter = 0;
+        //this.start = System.nanoTime();
+        //int counter = 0;
 
 
         int a;
@@ -25,7 +29,7 @@ public class DivisionExercise extends AbstractExercise {
         do {
             a = rand.nextInt(MAX - MIN) + MIN;
             b = rand.nextInt(MAX - MIN) + MIN;
-            counter++;
+            //counter++;
 
         } while (a == 0 || b == 0 || a % b != 0 || b >= a);
 
@@ -34,7 +38,7 @@ public class DivisionExercise extends AbstractExercise {
         secondNumber = b;
 
 
-        this.finish = System.nanoTime();
+        //this.finish = System.nanoTime();
         //logRandomTrials(counter);
 
     }
