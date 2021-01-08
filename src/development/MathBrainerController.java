@@ -24,13 +24,11 @@ public class MathBrainerController {
     private AbstractExercise exercise;
     private int correctAnswerCounter;
     private int wrongAnswerCounter;
-    private static int ticksLeft; // doesn't let me set "final" due to COUNTER--;
+    private static final int MAX = 10; // A maximal number used to determine the starting point of a countdown of ticksLeft
+    private int ticksLeft;
 
     @FXML
     private Slider levelSlider;
-
-    @FXML
-    private Label showQuestionLabel;
 
     @FXML
     private Label showCountdownLabel;
@@ -69,16 +67,18 @@ public class MathBrainerController {
                 expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = ";
                 displayExerciseField.setText(expression);
                 nextExerciseButton.setVisible(false);
-                checkAnswerButton.setVisible(true);
+                //checkAnswerButton.setVisible(true);
                 enterAnswerField.clear();
-                enterAnswerField.setManaged(true);
-                displayOutputMessageField.setText("");
+                enterAnswerField.setEditable(true);
+                displayOutputMessageField.setText(null);
+                ticksLeft = MAX;
+                setTimer();
             }
 
             case SOLVED -> {
                 nextExerciseButton.setVisible(true);
-                checkAnswerButton.setVisible(false);
-                enterAnswerField.setManaged(false);
+                //checkAnswerButton.setVisible(false);
+                enterAnswerField.setEditable(false);
                 displayOutputMessageField.setText("Malacis! Pareizi! :) \n");
                 displayOutputMessageField.setTextFill(Color.web("green"));
 
@@ -138,7 +138,8 @@ public class MathBrainerController {
 
     @FXML
     private void nextExercise(ActionEvent nextExercise) {
-       initialize();
+        solutionStatus = State.SOLVING;
+        render();
     }
 
 
@@ -156,12 +157,8 @@ public class MathBrainerController {
 
 
     public void initialize() {
-        ticksLeft = 10;
         solutionStatus = State.SOLVING;
         render();
-        setTimer();
-
-
 
 
         levelSlider.valueProperty().addListener(
