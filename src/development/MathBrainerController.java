@@ -24,7 +24,7 @@ public class MathBrainerController {
     private AbstractExercise exercise;
     private int correctAnswerCounter;
     private int wrongAnswerCounter;
-    private static final int MAX = 10; // A maximal number used to determine the starting point of a countdown of ticksLeft
+    private static final int MAX = 10; // A maximal number used to determine the starting point of a countdown of timers
     private int ticksLeft;
 
     @FXML
