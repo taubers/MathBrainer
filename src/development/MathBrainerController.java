@@ -17,13 +17,10 @@ import java.util.TimerTask;
 
 public class MathBrainerController {
 
+    MathBrainerModel model = new MathBrainerModel();
 
-    private enum State {SOLVING, SOLVED}
+    protected enum State {SOLVING, SOLVED}
 
-    private State solutionStatus;
-    private AbstractExercise exercise;
-    private int correctAnswerCounter;
-    private int wrongAnswerCounter;
     private static final int MAX = 10; // A maximal number used to determine the starting point of a countdown of timers
     private int ticksLeft;
 
@@ -59,25 +56,22 @@ public class MathBrainerController {
     @FXML
     private Label displayOutputMessageField;
 
-    private void render() {
+    private void updateView() {
         String expression;
-        switch (solutionStatus) {
+        switch (model.solutionStatus) {
             case SOLVING -> {
-                this.exercise = ExerciseFactory.getExercise();
-                expression = exercise.getFirstNumber() + " " + exercise.getOperator() + " " + exercise.getSecondNumber() + " = ";
+                expression = model.exercise.getFirstNumber() + " " + model.exercise.getOperator() + " " + model.exercise.getSecondNumber() + " = ";
                 displayExerciseField.setText(expression);
                 nextExerciseButton.setVisible(false);
-                //checkAnswerButton.setVisible(true);
+                checkAnswerButton.setVisible(true);
                 enterAnswerField.clear();
                 enterAnswerField.setEditable(true);
                 displayOutputMessageField.setText(null);
-                ticksLeft = MAX;
-                setTimer();
             }
 
             case SOLVED -> {
                 nextExerciseButton.setVisible(true);
-                //checkAnswerButton.setVisible(false);
+                checkAnswerButton.setVisible(false);
                 enterAnswerField.setEditable(false);
                 displayOutputMessageField.setText("Malacis! Pareizi! :) \n");
                 displayOutputMessageField.setTextFill(Color.web("green"));
@@ -92,15 +86,15 @@ public class MathBrainerController {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (solutionStatus == State.SOLVING) {
+                if (model.solutionStatus == State.SOLVING) {
                     //Platform.setImplicitExit(false);
                     Platform.runLater(() -> showCountdownLabel.setText(String.valueOf(ticksLeft)));
-                        ticksLeft--;
-                        if(ticksLeft ==0){
-                            timer.cancel();
-                        }
+                    ticksLeft--;
+                    if (ticksLeft == 0) {
+                        timer.cancel();
+                    }
                 }
-                if (solutionStatus == State.SOLVED){
+                if (model.solutionStatus == State.SOLVED) {
                     timer.cancel();
                 }
             }
@@ -120,14 +114,14 @@ public class MathBrainerController {
             return;
         }
 
-        if (answer == exercise.getResult()) {
-            correctAnswerCounter++;
-            showCorrectAnswerLabel.setText(String.valueOf(correctAnswerCounter));
-            solutionStatus = State.SOLVED;
-            render();
+        if (answer == model.exercise.getResult()) {
+            model.correctAnswerCounter++;
+            showCorrectAnswerLabel.setText(String.valueOf(model.correctAnswerCounter));
+            model.solutionStatus = State.SOLVED;
+            updateView();
         } else {
-            wrongAnswerCounter++;
-            showWrongAnswerLabel.setText(String.valueOf(wrongAnswerCounter));
+            model.wrongAnswerCounter++;
+            showWrongAnswerLabel.setText(String.valueOf(model.wrongAnswerCounter));
             displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
             displayOutputMessageField.setTextFill(Color.web("red"));
         }
@@ -138,17 +132,20 @@ public class MathBrainerController {
 
     @FXML
     private void nextExercise(ActionEvent nextExercise) {
-        solutionStatus = State.SOLVING;
-        render();
+        model.exercise = ExerciseFactory.getExercise();
+        model.solutionStatus = State.SOLVING;
+        ticksLeft = MAX;
+        setTimer();
+        updateView();
     }
 
 
     @FXML
     private void submitWithEnterKey(ActionEvent event) {
         enterAnswerField.setOnKeyPressed(enterKeyPressed -> {
-            if (State.SOLVING.equals(solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER) {
+            if (State.SOLVING.equals(model.solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER) {
                 checkAnswerButton.fire();
-            } else if (State.SOLVED.equals(solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER) {
+            } else if (State.SOLVED.equals(model.solutionStatus) && enterKeyPressed.getCode() == KeyCode.ENTER) {
                 nextExerciseButton.fire();
             }
 
@@ -157,8 +154,7 @@ public class MathBrainerController {
 
 
     public void initialize() {
-        solutionStatus = State.SOLVING;
-        render();
+        nextExercise(null);
 
 
         levelSlider.valueProperty().addListener(
