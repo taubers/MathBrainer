@@ -1,4 +1,4 @@
-package development;
+package exercises;
 
 import java.util.Random;
 

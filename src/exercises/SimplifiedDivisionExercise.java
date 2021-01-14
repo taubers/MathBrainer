@@ -1,9 +1,7 @@
-package Calculators;
+package exercises;
 
 // This Class is a second version of DivisionExercise class
 // This class generates numbers instantly compared with DivisionExercise (which needs several attempts until valid numbers are generated)
-
-import development.AbstractExercise;
 
 public class SimplifiedDivisionExercise extends AbstractExercise {
 

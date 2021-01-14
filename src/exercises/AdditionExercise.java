@@ -1,6 +1,4 @@
-package Calculators;
-
-import development.AbstractExercise;
+package exercises;
 
 public class AdditionExercise extends AbstractExercise {
 

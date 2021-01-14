@@ -1,15 +1,4 @@
-package Calculators;
-
-import development.AbstractExercise;
-
-
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.util.Date;
+package exercises;
 
 
 public class DivisionExercise extends AbstractExercise {
