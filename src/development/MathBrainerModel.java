@@ -9,31 +9,55 @@ import java.util.TimerTask;
 import java.util.function.Consumer;
 
 public class MathBrainerModel {
-    Timer timer = new Timer();
+    protected enum State {SOLVING, SOLVED}
 
-    public enum State {SOLVING, SOLVED}
-
-    protected State solutionStatus;
-    protected AbstractExercise exercise;
-    public int correctAnswerCounter;
-    public int wrongAnswerCounter;
+    private State solutionState;
+    private AbstractExercise exercise;
+    private int correctAnswerCounter;
+    private int wrongAnswerCounter;
     private static final int MAX = 10; // A maximal number used to determine the starting point of a countdown of timers
     private int ticksLeft;
     private Consumer<Integer> timerCallback;
+    private Timer timer;
 
     public void toSolving() {
-        solutionStatus = State.SOLVING;
+        solutionState = State.SOLVING;
         exercise = ExerciseFactory.getExercise();
         setTimer();
 
     }
 
     public void toSolved() {
-        solutionStatus = State.SOLVED;
+        solutionState = State.SOLVED;
         timer.cancel();
     }
 
-    public void setTimer(){
+    public State getSolutionState() {
+        return solutionState;
+    }
+
+    public AbstractExercise getExercise() {
+        return exercise;
+    }
+
+    public int getCorrectAnswerCounter() {
+        return correctAnswerCounter;
+    }
+
+    public int setCorrectAnswerCounter() {
+        return correctAnswerCounter++;
+    }
+
+    public int getWrongAnswerCounter() {
+        return wrongAnswerCounter;
+    }
+
+    public int setWrongAnswerCounter() {
+        return wrongAnswerCounter++;
+    }
+
+    public void setTimer() {
+        timer = new Timer();
         ticksLeft = MAX;
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -41,7 +65,7 @@ public class MathBrainerModel {
                 Platform.setImplicitExit(false);
                 Platform.runLater(() -> timerCallback.accept(ticksLeft));
                 ticksLeft--;
-                System.out.println(ticksLeft);
+                //System.out.println(ticksLeft);
                 if (ticksLeft == 0) {
                     timer.cancel();
                 }

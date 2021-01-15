@@ -12,7 +12,7 @@ public class MathBrainer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../UI/MathBrainer_UI_Desktop.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../UI/MathBrainer_Desktop.fxml"));
         primaryStage.setTitle("MathBrainer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -49,9 +49,9 @@ public class MathBrainerController {
 
     private void updateView() {
 
-        switch (model.solutionStatus) {
+        switch (model.getSolutionState()) {
             case SOLVING -> {
-                String expression = model.exercise.getFirstNumber() + " " + model.exercise.getOperator() + " " + model.exercise.getSecondNumber() + " = ";
+                String expression = model.getExercise().getFirstNumber() + " " + model.getExercise().getOperator() + " " + model.getExercise().getSecondNumber() + " = ";
                 displayExerciseField.setText(expression);
                 nextExerciseButton.setVisible(false);
                 checkAnswerButton.setVisible(true);
@@ -84,14 +84,14 @@ public class MathBrainerController {
             return;
         }
 
-        if (answer == model.exercise.getResult()) {
-            model.correctAnswerCounter++;
-            showCorrectAnswerLabel.setText(String.valueOf(model.correctAnswerCounter));
+        if (answer == model.getExercise().getResult()) {
+            model.setCorrectAnswerCounter();
+            showCorrectAnswerLabel.setText(String.valueOf(model.getCorrectAnswerCounter()));
             model.toSolved();
             updateView();
         } else {
-            model.wrongAnswerCounter++;
-            showWrongAnswerLabel.setText(String.valueOf(model.wrongAnswerCounter));
+            model.setWrongAnswerCounter();
+            showWrongAnswerLabel.setText(String.valueOf(model.getWrongAnswerCounter()));
             displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
             displayOutputMessageField.setTextFill(Color.web("red"));
         }
@@ -110,9 +110,9 @@ public class MathBrainerController {
     @FXML
     private void submitWithEnterKey(ActionEvent event) {
         enterAnswerField.setOnKeyPressed(enterKeyPressed -> {
-            if (model.solutionStatus == MathBrainerModel.State.SOLVING && enterKeyPressed.getCode() == KeyCode.ENTER) {
+            if (model.getSolutionState() == MathBrainerModel.State.SOLVING && enterKeyPressed.getCode() == KeyCode.ENTER) {
                 checkAnswerButton.fire();
-            } else if (model.solutionStatus == MathBrainerModel.State.SOLVED && enterKeyPressed.getCode() == KeyCode.ENTER) {
+            } else if (model.getSolutionState() == MathBrainerModel.State.SOLVED && enterKeyPressed.getCode() == KeyCode.ENTER) {
                 nextExerciseButton.fire();
             }
 
