@@ -6,6 +6,7 @@ import javafx.application.Platform;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.function.Consumer;
 
 public class MathBrainerModel {
     Timer timer = new Timer();
@@ -18,12 +19,12 @@ public class MathBrainerModel {
     public int wrongAnswerCounter;
     private static final int MAX = 10; // A maximal number used to determine the starting point of a countdown of timers
     private int ticksLeft;
-
+    private Consumer<Integer> timerCallback;
 
     public void toSolving() {
         solutionStatus = State.SOLVING;
         exercise = ExerciseFactory.getExercise();
-        //setTimer();
+        setTimer();
 
     }
 
@@ -32,13 +33,13 @@ public class MathBrainerModel {
         timer.cancel();
     }
 
-    /*public void setTimer(){
+    public void setTimer(){
         ticksLeft = MAX;
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 Platform.setImplicitExit(false);
-                Platform.runLater(() -> showCountdownLabel.setText(String.valueOf(ticksLeft)));
+                Platform.runLater(() -> timerCallback.accept(ticksLeft));
                 ticksLeft--;
                 System.out.println(ticksLeft);
                 if (ticksLeft == 0) {
@@ -47,8 +48,11 @@ public class MathBrainerModel {
             }
 
         }, 1000, 1000);
-    }*/
+    }
 
+    public void setTimerCallback(Consumer<Integer> timerCallback) {
+        this.timerCallback = timerCallback;
+    }
 }
 
 

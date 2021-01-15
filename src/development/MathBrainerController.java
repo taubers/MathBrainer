@@ -119,8 +119,12 @@ public class MathBrainerController {
         });
     }
 
+    public void timerCallback(Integer ticksLeft) {
+        showCountdownLabel.setText(String.valueOf(ticksLeft));
+    }
 
     public void initialize() {
+        model.setTimerCallback(this::timerCallback);
         nextExercise(null);
 
 
