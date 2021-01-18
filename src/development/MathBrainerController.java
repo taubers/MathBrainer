@@ -12,6 +12,18 @@ import javafx.scene.paint.Color;
 
 public class MathBrainerController {
 
+private String SUCCESS;
+private String FAILURE;
+private String NUMBERS_ONLY;
+private String DIFFICULTY_LEVEL_1;
+private String DIFFICULTY_LEVEL_2;
+private String DIFFICULTY_LEVEL_3;
+private String DIFFICULTY_LEVEL_4;
+private String DIFFICULTY_LEVEL_5;
+private String DIFFICULTY_LEVEL_6;
+private String DIFFICULTY_LEVEL_7;
+
+
     MathBrainerModel model = new MathBrainerModel();
 
 
@@ -72,6 +84,60 @@ public class MathBrainerController {
         }
     }
 
+    private void detectLanguage(){
+        switch (model.getUserLanguage()){
+            case LATVIAN -> {
+                SUCCESS = "Malacis! Pareizi! :)" ;
+                FAILURE = "Nav pareizi :( Mēģini vēlreiz...";
+                NUMBERS_ONLY = "Lūdzu ievadi tikai skaitļus";
+                DIFFICULTY_LEVEL_1 = "Bēbis";
+                DIFFICULTY_LEVEL_2 = "Pirmklasnieks";
+                DIFFICULTY_LEVEL_3 = "Vidusskolnieks";
+                DIFFICULTY_LEVEL_4 = "Students";
+                DIFFICULTY_LEVEL_5 = "Profesionālis";
+                DIFFICULTY_LEVEL_6 = "Skolotājs";
+                DIFFICULTY_LEVEL_7 = "Einšteins";
+            }
+            /*case GERMAN -> {
+                SUCCESS;
+                FAILURE;
+                NUMBERS_ONLY;
+                DIFFICULTY_LEVEL_1;
+                DIFFICULTY_LEVEL_2;
+                DIFFICULTY_LEVEL_3;
+                DIFFICULTY_LEVEL_4;
+                DIFFICULTY_LEVEL_5;
+                DIFFICULTY_LEVEL_6;
+                DIFFICULTY_LEVEL_7;
+            }
+            case RUSSIAN -> {
+                SUCCESS;
+                FAILURE;
+                NUMBERS_ONLY;
+                DIFFICULTY_LEVEL_1;
+                DIFFICULTY_LEVEL_2;
+                DIFFICULTY_LEVEL_3;
+                DIFFICULTY_LEVEL_4;
+                DIFFICULTY_LEVEL_5;
+                DIFFICULTY_LEVEL_6;
+                DIFFICULTY_LEVEL_7;
+            }
+            default -> { //English
+                SUCCESS;
+                FAILURE;
+                NUMBERS_ONLY;
+                DIFFICULTY_LEVEL_1;
+                DIFFICULTY_LEVEL_2;
+                DIFFICULTY_LEVEL_3;
+                DIFFICULTY_LEVEL_4;
+                DIFFICULTY_LEVEL_5;
+                DIFFICULTY_LEVEL_6;
+                DIFFICULTY_LEVEL_7;
+            }
+
+*/
+        }
+    }
 
     @FXML
     private void checkAnswer(ActionEvent checkAnswer) {
@@ -85,12 +151,12 @@ public class MathBrainerController {
         }
 
         if (answer == model.getExercise().getResult()) {
-            model.setCorrectAnswerCounter();
+            model.incrementCorrectAnswerCounter();
             showCorrectAnswerLabel.setText(String.valueOf(model.getCorrectAnswerCounter()));
             model.toSolved();
             updateView();
         } else {
-            model.setWrongAnswerCounter();
+            model.incrementWrongAnswerCounter();
             showWrongAnswerLabel.setText(String.valueOf(model.getWrongAnswerCounter()));
             displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
             displayOutputMessageField.setTextFill(Color.web("red"));
@@ -125,7 +191,8 @@ public class MathBrainerController {
 
     public void initialize() {
         model.setTimerCallback(this::timerCallback);
-        nextExercise(null);
+        model.setUserLanguage(MathBrainerModel.Language.LATVIAN);
+        detectLanguage();
 
 
         levelSlider.valueProperty().addListener(
@@ -155,6 +222,9 @@ public class MathBrainerController {
 
                 }
         );
+
+        model.toSolving();
+        updateView();
     }
 
 

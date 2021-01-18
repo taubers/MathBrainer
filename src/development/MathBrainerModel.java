@@ -10,8 +10,10 @@ import java.util.function.Consumer;
 
 public class MathBrainerModel {
     protected enum State {SOLVING, SOLVED}
+    protected enum Language{LATVIAN, RUSSIAN, ENGLISH, GERMAN}
 
     private State solutionState;
+    private Language userLanguage;
     private AbstractExercise exercise;
     private int correctAnswerCounter;
     private int wrongAnswerCounter;
@@ -19,6 +21,7 @@ public class MathBrainerModel {
     private int ticksLeft;
     private Consumer<Integer> timerCallback;
     private Timer timer;
+
 
     public void toSolving() {
         solutionState = State.SOLVING;
@@ -36,6 +39,10 @@ public class MathBrainerModel {
         return solutionState;
     }
 
+    public Language getUserLanguage(){
+        return userLanguage;
+    }
+
     public AbstractExercise getExercise() {
         return exercise;
     }
@@ -44,7 +51,7 @@ public class MathBrainerModel {
         return correctAnswerCounter;
     }
 
-    public int setCorrectAnswerCounter() {
+    public int incrementCorrectAnswerCounter() {
         return correctAnswerCounter++;
     }
 
@@ -52,8 +59,12 @@ public class MathBrainerModel {
         return wrongAnswerCounter;
     }
 
-    public int setWrongAnswerCounter() {
+    public int incrementWrongAnswerCounter() {
         return wrongAnswerCounter++;
+    }
+
+    public void setUserLanguage(Language userLanguage){
+        this.userLanguage = userLanguage;
     }
 
     public void setTimer() {
