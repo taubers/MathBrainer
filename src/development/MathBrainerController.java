@@ -124,8 +124,9 @@ public class MathBrainerController {
     }
 
     public void initialize() {
-        model.setTimerCallback(this::timerCallback);
         model.getUserLanguage();
+        model.setTimerCallback(this::timerCallback);
+        levelName.setText(model.language.getDifficultyLevel_1());
 
 
         levelSlider.valueProperty().addListener(

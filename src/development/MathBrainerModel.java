@@ -106,6 +106,7 @@ public class MathBrainerModel {
 
     // Timer
     public void setTimer() {
+        //TODO simplify Timer Code
         timer = new Timer();
         ticksLeft = MAX;
         timer.scheduleAtFixedRate(new TimerTask() {
