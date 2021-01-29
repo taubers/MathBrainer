@@ -12,17 +12,6 @@ import javafx.scene.paint.Color;
 
 public class MathBrainerController {
 
-private String SUCCESS;
-private String FAILURE;
-private String NUMBERS_ONLY;
-private String DIFFICULTY_LEVEL_1;
-private String DIFFICULTY_LEVEL_2;
-private String DIFFICULTY_LEVEL_3;
-private String DIFFICULTY_LEVEL_4;
-private String DIFFICULTY_LEVEL_5;
-private String DIFFICULTY_LEVEL_6;
-private String DIFFICULTY_LEVEL_7;
-
 
     MathBrainerModel model = new MathBrainerModel();
 
@@ -76,66 +65,11 @@ private String DIFFICULTY_LEVEL_7;
                 nextExerciseButton.setVisible(true);
                 checkAnswerButton.setVisible(false);
                 enterAnswerField.setEditable(false);
-                displayOutputMessageField.setText("Malacis! Pareizi! :) \n");
+                displayOutputMessageField.setText(model.language.getSuccess());
                 displayOutputMessageField.setTextFill(Color.web("green"));
 
             }
 
-        }
-    }
-
-    private void detectLanguage(){
-        switch (model.getUserLanguage()){
-            case LATVIAN -> {
-                SUCCESS = "Malacis! Pareizi! :)" ;
-                FAILURE = "Nav pareizi :( Mēģini vēlreiz...";
-                NUMBERS_ONLY = "Lūdzu ievadi tikai skaitļus";
-                DIFFICULTY_LEVEL_1 = "Bēbis";
-                DIFFICULTY_LEVEL_2 = "Pirmklasnieks";
-                DIFFICULTY_LEVEL_3 = "Vidusskolnieks";
-                DIFFICULTY_LEVEL_4 = "Students";
-                DIFFICULTY_LEVEL_5 = "Profesionālis";
-                DIFFICULTY_LEVEL_6 = "Skolotājs";
-                DIFFICULTY_LEVEL_7 = "Einšteins";
-            }
-            /*case GERMAN -> {
-                SUCCESS;
-                FAILURE;
-                NUMBERS_ONLY;
-                DIFFICULTY_LEVEL_1;
-                DIFFICULTY_LEVEL_2;
-                DIFFICULTY_LEVEL_3;
-                DIFFICULTY_LEVEL_4;
-                DIFFICULTY_LEVEL_5;
-                DIFFICULTY_LEVEL_6;
-                DIFFICULTY_LEVEL_7;
-            }
-            case RUSSIAN -> {
-                SUCCESS;
-                FAILURE;
-                NUMBERS_ONLY;
-                DIFFICULTY_LEVEL_1;
-                DIFFICULTY_LEVEL_2;
-                DIFFICULTY_LEVEL_3;
-                DIFFICULTY_LEVEL_4;
-                DIFFICULTY_LEVEL_5;
-                DIFFICULTY_LEVEL_6;
-                DIFFICULTY_LEVEL_7;
-            }
-            default -> { //English
-                SUCCESS;
-                FAILURE;
-                NUMBERS_ONLY;
-                DIFFICULTY_LEVEL_1;
-                DIFFICULTY_LEVEL_2;
-                DIFFICULTY_LEVEL_3;
-                DIFFICULTY_LEVEL_4;
-                DIFFICULTY_LEVEL_5;
-                DIFFICULTY_LEVEL_6;
-                DIFFICULTY_LEVEL_7;
-            }
-
-*/
         }
     }
 
@@ -145,7 +79,7 @@ private String DIFFICULTY_LEVEL_7;
         try {
             answer = Integer.parseInt(enterAnswerField.getText());
         } catch (NumberFormatException e) {
-            displayOutputMessageField.setText("Lūdzu ievadi tikai skaitļus\n");
+            displayOutputMessageField.setText(model.language.getNumbersOnly());
             displayOutputMessageField.setTextFill(Color.web("black"));
             return;
         }
@@ -158,7 +92,7 @@ private String DIFFICULTY_LEVEL_7;
         } else {
             model.incrementWrongAnswerCounter();
             showWrongAnswerLabel.setText(String.valueOf(model.getWrongAnswerCounter()));
-            displayOutputMessageField.setText("Nav pareizi :( Mēģini vēlreiz... \n");
+            displayOutputMessageField.setText(model.language.getFailure());
             displayOutputMessageField.setTextFill(Color.web("red"));
         }
 
@@ -191,32 +125,31 @@ private String DIFFICULTY_LEVEL_7;
 
     public void initialize() {
         model.setTimerCallback(this::timerCallback);
-        model.setUserLanguage(MathBrainerModel.Language.LATVIAN);
-        detectLanguage();
+        model.getUserLanguage();
 
 
         levelSlider.valueProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     if (levelSlider.getValue() == 1) {
-                        levelName.setText("Bēbis");
+                        levelName.setText(model.language.getDifficultyLevel_1());
                     }
                     if (levelSlider.getValue() == 2) {
-                        levelName.setText("Pirmklasnieks");
+                        levelName.setText(model.language.getDifficultyLevel_2());
                     }
                     if (levelSlider.getValue() == 3) {
-                        levelName.setText("Vidusskolnieks");
+                        levelName.setText(model.language.getDifficultyLevel_3());
                     }
                     if (levelSlider.getValue() == 4) {
-                        levelName.setText("Students");
+                        levelName.setText(model.language.getDifficultyLevel_4());
                     }
                     if (levelSlider.getValue() == 5) {
-                        levelName.setText("Profesionālis");
+                        levelName.setText(model.language.getDifficultyLevel_5());
                     }
                     if (levelSlider.getValue() == 6) {
-                        levelName.setText("Skolotājs");
+                        levelName.setText(model.language.getDifficultyLevel_6());
                     }
                     if (levelSlider.getValue() == 7) {
-                        levelName.setText("Einšteins");
+                        levelName.setText(model.language.getDifficultyLevel_7());
                     }
 
 

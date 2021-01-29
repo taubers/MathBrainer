@@ -47,7 +47,7 @@
          </children>
       </StackPane>
       <Slider fx:id="levelSlider" blockIncrement="1.0" cache="true" layoutX="330.0" layoutY="191.0" majorTickUnit="1.0" max="7.0" min="1.0" minorTickCount="0" prefHeight="15.0" prefWidth="206.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
-      <Label fx:id="levelName" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="197.0" layoutY="190.0" prefHeight="17.0" prefWidth="123.0" text="Bēbis" />
+      <Label fx:id="levelName" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="197.0" layoutY="190.0" prefHeight="17.0" prefWidth="123.0" />
       <Label layoutX="79.0" layoutY="165.0" text="Statistika" underline="true" />
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="23.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
          <image>
