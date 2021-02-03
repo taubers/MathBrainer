@@ -1,5 +1,3 @@
-package development;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,12 +7,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 
 public class MathBrainerController {
 
 
     MathBrainerModel model = new MathBrainerModel();
 
+    @FXML
+    ResourceBundle bundle = ResourceBundle.getBundle("language", Locale.forLanguageTag("lv"));
 
     @FXML
     private Slider levelSlider;
@@ -65,7 +68,7 @@ public class MathBrainerController {
                 nextExerciseButton.setVisible(true);
                 checkAnswerButton.setVisible(false);
                 enterAnswerField.setEditable(false);
-                displayOutputMessageField.setText(model.language.getSuccess());
+                displayOutputMessageField.setText(bundle.getString("success_message"));
                 displayOutputMessageField.setTextFill(Color.web("green"));
 
             }
@@ -79,7 +82,7 @@ public class MathBrainerController {
         try {
             answer = Integer.parseInt(enterAnswerField.getText());
         } catch (NumberFormatException e) {
-            displayOutputMessageField.setText(model.language.getNumbersOnly());
+            displayOutputMessageField.setText(bundle.getString("numbers_only_message"));
             displayOutputMessageField.setTextFill(Color.web("black"));
             return;
         }
@@ -92,7 +95,7 @@ public class MathBrainerController {
         } else {
             model.incrementWrongAnswerCounter();
             showWrongAnswerLabel.setText(String.valueOf(model.getWrongAnswerCounter()));
-            displayOutputMessageField.setText(model.language.getFailure());
+            displayOutputMessageField.setText(bundle.getString("failure_message"));
             displayOutputMessageField.setTextFill(Color.web("red"));
         }
 
@@ -124,33 +127,33 @@ public class MathBrainerController {
     }
 
     public void initialize() {
-        model.getUserLanguage();
+        //model.getUserLanguage();
         model.setTimerCallback(this::timerCallback);
-        levelName.setText(model.language.getDifficultyLevel_1());
+        //levelName.setText(model.language.getDifficultyLevel_1());
 
 
         levelSlider.valueProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     if (levelSlider.getValue() == 1) {
-                        levelName.setText(model.language.getDifficultyLevel_1());
+                        levelName.setText(bundle.getString("difficulty_level_1_name"));
                     }
                     if (levelSlider.getValue() == 2) {
-                        levelName.setText(model.language.getDifficultyLevel_2());
+                        levelName.setText(bundle.getString("difficulty_level_2_name"));
                     }
                     if (levelSlider.getValue() == 3) {
-                        levelName.setText(model.language.getDifficultyLevel_3());
+                        levelName.setText(bundle.getString("difficulty_level_3_name"));
                     }
                     if (levelSlider.getValue() == 4) {
-                        levelName.setText(model.language.getDifficultyLevel_4());
+                        levelName.setText(bundle.getString("difficulty_level_4_name"));
                     }
                     if (levelSlider.getValue() == 5) {
-                        levelName.setText(model.language.getDifficultyLevel_5());
+                        levelName.setText(bundle.getString("difficulty_level_5_name"));
                     }
                     if (levelSlider.getValue() == 6) {
-                        levelName.setText(model.language.getDifficultyLevel_6());
+                        levelName.setText(bundle.getString("difficulty_level_6_name"));
                     }
                     if (levelSlider.getValue() == 7) {
-                        levelName.setText(model.language.getDifficultyLevel_7());
+                        levelName.setText(bundle.getString("difficulty_level_7_name"));
                     }
 
 

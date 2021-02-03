@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="575.0" style="-fx-background-color: f8eed5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="development.MathBrainerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="575.0" style="-fx-background-color: f8eed5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MathBrainerController">
    <children>
       <Label fx:id="displayOutputMessageField" alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="112.0" prefHeight="35.0" prefWidth="524.0">
          <padding>
@@ -28,12 +28,12 @@
       </TextField>
       <StackPane layoutX="306.0" layoutY="27.0" prefHeight="65.0" prefWidth="254.0">
          <children>
-            <Button fx:id="checkAnswerButton" mnemonicParsing="false" onAction="#checkAnswer" prefHeight="45.0" prefWidth="225.5" text="Pārbaudīt" textAlignment="CENTER">
+            <Button fx:id="checkAnswerButton" mnemonicParsing="false" onAction="#checkAnswer" prefHeight="45.0" prefWidth="225.5" text="%check_answer_button_text" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="nextExerciseButton" mnemonicParsing="false" onAction="#nextExercise" text="Nākamais uzdevums" textAlignment="CENTER">
+            <Button fx:id="nextExerciseButton" mnemonicParsing="false" onAction="#nextExercise" text="%next_exercise_button_text" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -47,8 +47,8 @@
          </children>
       </StackPane>
       <Slider fx:id="levelSlider" blockIncrement="1.0" cache="true" layoutX="330.0" layoutY="191.0" majorTickUnit="1.0" max="7.0" min="1.0" minorTickCount="0" prefHeight="15.0" prefWidth="206.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
-      <Label fx:id="levelName" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="197.0" layoutY="190.0" prefHeight="17.0" prefWidth="123.0" />
-      <Label layoutX="79.0" layoutY="165.0" text="Statistika" underline="true" />
+      <Label fx:id="levelName" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="197.0" layoutY="190.0" prefHeight="17.0" prefWidth="123.0" text="%difficulty_level_1_name" />
+      <Label layoutX="79.0" layoutY="165.0" text="%statistics_label_text" underline="true" />
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="23.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Smiling_Emoji.png" />
@@ -69,7 +69,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="412.0" layoutY="165.0" text="Līmenis" underline="true" />
+      <Label layoutX="412.0" layoutY="165.0" text="%level_head_label_text" underline="true" />
       <Label fx:id="showCountdownLabel" alignment="CENTER" layoutX="418.0" layoutY="92.0" text="10" textFill="#d01a1a">
          <font>
             <Font size="18.0" />
