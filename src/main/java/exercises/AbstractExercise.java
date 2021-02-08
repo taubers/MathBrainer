@@ -5,6 +5,7 @@ import java.util.Random;
 public abstract class AbstractExercise {
 
     public Random rand = new Random();
+    Level level = new Level();
 
     protected static final int MIN = 2;
     protected static final int MAX = 100;
@@ -12,7 +13,7 @@ public abstract class AbstractExercise {
     protected int secondNumber;
     protected String operator;
     protected int result;
-    protected int level;
+    //protected int level;
 
 
     public AbstractExercise() {
