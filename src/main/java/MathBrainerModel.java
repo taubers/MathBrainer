@@ -7,7 +7,7 @@ import java.util.TimerTask;
 import java.util.function.Consumer;
 
 public class MathBrainerModel {
-    protected enum State {SOLVING, SOLVED}
+    protected enum State {SOLVING, SOLVED, GAVE_UP}
 
     private State solutionState;
     private AbstractExercise exercise;
@@ -28,6 +28,12 @@ public class MathBrainerModel {
 
     public void toSolved() {
         solutionState = State.SOLVED;
+        timer.cancel();
+    }
+
+
+    public void toGaveUp() {
+        solutionState = State.GAVE_UP;
         timer.cancel();
     }
 

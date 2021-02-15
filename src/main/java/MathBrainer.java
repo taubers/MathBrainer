@@ -21,6 +21,7 @@ public class MathBrainer extends Application {
         primaryStage.setTitle("MathBrainer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 
 

@@ -47,6 +47,9 @@ public class MathBrainerController {
     @FXML
     private Button nextExerciseButton;
 
+    @FXML
+    private Button giveUpButton;
+
 
     @FXML
     private Label displayOutputMessageField;
@@ -54,26 +57,40 @@ public class MathBrainerController {
     private void updateView() {
 
         switch (model.getSolutionState()) {
+
             case SOLVING -> {
+
                 String expression = model.getExercise().getFirstNumber() + " " + model.getExercise().getOperator() + " " + model.getExercise().getSecondNumber() + " = ";
                 displayExerciseField.setText(expression);
                 nextExerciseButton.setVisible(false);
                 checkAnswerButton.setVisible(true);
+                giveUpButton.setVisible(true);
                 enterAnswerField.clear();
                 enterAnswerField.setEditable(true);
                 displayOutputMessageField.setText(null);
             }
 
             case SOLVED -> {
+
                 nextExerciseButton.setVisible(true);
                 checkAnswerButton.setVisible(false);
                 enterAnswerField.setEditable(false);
+                giveUpButton.setVisible(false);
                 displayOutputMessageField.setText(bundle.getString("success_message"));
                 displayOutputMessageField.setTextFill(Color.web("green"));
-
             }
 
+            case GAVE_UP -> {
+
+                nextExerciseButton.setVisible(true);
+                checkAnswerButton.setVisible(false);
+                enterAnswerField.setEditable(false);
+                giveUpButton.setVisible(false);
+                displayOutputMessageField.setText(bundle.getString("give_up_message"));
+                displayOutputMessageField.setTextFill(Color.web("orange"));
+            }
         }
+
     }
 
     @FXML
@@ -87,7 +104,7 @@ public class MathBrainerController {
             return;
         }
 
-        if (answer == model.getExercise().getResult() | answer == -42 /* magic answer :) */ ) {
+        if (answer == model.getExercise().getResult()) {
             model.incrementCorrectAnswerCounter();
             showCorrectAnswerLabel.setText(String.valueOf(model.getCorrectAnswerCounter()));
             model.toSolved();
@@ -106,6 +123,14 @@ public class MathBrainerController {
     @FXML
     private void nextExercise(ActionEvent nextExercise) {
         model.toSolving();
+        updateView();
+    }
+
+    @FXML
+    void giveUp(ActionEvent event) {
+        model.incrementWrongAnswerCounter();
+        showWrongAnswerLabel.setText(String.valueOf(model.getWrongAnswerCounter()));
+        model.toGaveUp();
         updateView();
     }
 
