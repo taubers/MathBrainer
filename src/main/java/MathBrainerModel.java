@@ -1,5 +1,4 @@
 import exercises.AbstractExercise;
-import exercises.ExerciseFactory;
 import javafx.application.Platform;
 
 import java.util.Timer;
@@ -21,7 +20,7 @@ public class MathBrainerModel {
 
     public void toSolving() {
         solutionState = State.SOLVING;
-        exercise = ExerciseFactory.getExercise();
+        //exercise = ExerciseFactory.getExercise();
         setTimer();
 
     }

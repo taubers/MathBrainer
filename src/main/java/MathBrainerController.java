@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 
 public class MathBrainerController {
 
-
     MathBrainerModel model = new MathBrainerModel();
 
     @FXML

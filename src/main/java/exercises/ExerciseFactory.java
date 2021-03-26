@@ -1,15 +1,18 @@
 package exercises;
 
-import java.security.SecureRandom;
-
 public class ExerciseFactory {
-    public static AbstractExercise getExercise() {
-        int exercisePicker = new SecureRandom().nextInt(4);
-        switch (exercisePicker) {
-            case 0:
+
+   /* //Level level = new Level();
+
+    public static AbstractExercise getExercise(Level level) {
+        //int exercisePicker = new SecureRandom().nextInt(4);
+        switch (getExercise(level)) {
+            case Level.Levels.LEVEL_1 -> {
                 return new AdditionExercise();
-            case 1:
+            }
+            case Level.Levels.LEVEL_2 -> {
                 return new SubtractionExercise();
+            }
             case 2:
                 return new DivisionExercise();
             case 3:
@@ -17,5 +20,5 @@ public class ExerciseFactory {
             default:
                 throw new IllegalStateException("Unexpected value: " + exercisePicker);
         }
-    }
+    }*/
 }
