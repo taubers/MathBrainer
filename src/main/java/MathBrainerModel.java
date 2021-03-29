@@ -1,4 +1,6 @@
 import exercises.AbstractExercise;
+import exercises.ExerciseFactory;
+import exercises.Level;
 import javafx.application.Platform;
 
 import java.util.Timer;
@@ -16,12 +18,13 @@ public class MathBrainerModel {
     private int ticksLeft;
     private Consumer<Integer> timerCallback;
     private Timer timer;
-
+    protected Level level;
 
     public void toSolving() {
         solutionState = State.SOLVING;
-        //exercise = ExerciseFactory.getExercise();
+        exercise = ExerciseFactory.getExercise(level);
         setTimer();
+
 
     }
 
@@ -35,6 +38,7 @@ public class MathBrainerModel {
         solutionState = State.GAVE_UP;
         timer.cancel();
     }
+
 
 
     public State getSolutionState() {
