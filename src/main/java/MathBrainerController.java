@@ -1,3 +1,4 @@
+import exercises.Level;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,8 +14,9 @@ import java.util.ResourceBundle;
 
 public class MathBrainerController {
 
-
     MathBrainerModel model = new MathBrainerModel();
+
+    Level level;
 
     @FXML
     ResourceBundle bundle = ResourceBundle.getBundle("language", Locale.forLanguageTag("lv"));
@@ -147,6 +149,36 @@ public class MathBrainerController {
         });
     }
 
+
+    public Level getSliderLevel(){
+        int slidervalue = (int) levelSlider.getValue();
+        switch (slidervalue){
+            case 1:
+                level =  Level.LEVEL_1;
+                break;
+            case 2:
+                level = Level.LEVEL_2;
+                break;
+            case 3:
+                level = Level.LEVEL_3;
+                break;
+            case 4:
+                level = Level.LEVEL_4;
+                break;
+            case 5:
+                level = Level.LEVEL_5;
+                break;
+            case 6:
+                level = Level.LEVEL_6;
+                break;
+            case 7:
+                level = Level.LEVEL_7;
+                break;
+        }
+        return level;
+    }
+
+
     public void timerCallback(Integer ticksLeft) {
         showCountdownLabel.setText(String.valueOf(ticksLeft));
     }
@@ -158,6 +190,7 @@ public class MathBrainerController {
                 (observable, oldValue, newValue) -> {
                     if (levelSlider.getValue() == 1) {
                         levelName.setText(bundle.getString("difficulty_level_1_name"));
+
                     }
                     if (levelSlider.getValue() == 2) {
                         levelName.setText(bundle.getString("difficulty_level_2_name"));
@@ -181,6 +214,7 @@ public class MathBrainerController {
 
                 }
         );
+
 
         model.toSolving();
         updateView();
