@@ -18,7 +18,7 @@ public class MathBrainerModel {
     private int ticksLeft;
     private Consumer<Integer> timerCallback;
     private Timer timer;
-    protected Level level;
+    private Level level;
 
     public void toSolving() {
         solutionState = State.SOLVING;

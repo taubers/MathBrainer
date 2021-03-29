@@ -149,33 +149,27 @@ public class MathBrainerController {
     }
 
 
-    private Level getSliderLevel(   ){
+    private Level getSliderLevel(){
 
         int slidervalue = (int) levelSlider.getValue();
         switch (slidervalue){
             case 1:
-                model.level =  Level.LEVEL_1;
-                break;
+                return Level.LEVEL_1;
             case 2:
-                model.level = Level.LEVEL_2;
-                break;
+                return Level.LEVEL_2;
             case 3:
-                model.level = Level.LEVEL_3;
-                break;
+                return Level.LEVEL_3;
             case 4:
-                model.level = Level.LEVEL_4;
-                break;
+                return Level.LEVEL_4;
             case 5:
-                model.level = Level.LEVEL_5;
-                break;
+                return Level.LEVEL_5;
             case 6:
-                model.level = Level.LEVEL_6;
-                break;
+                return Level.LEVEL_6;
             case 7:
-                model.level = Level.LEVEL_7;
-                break;
+                return Level.LEVEL_7;
+            default:
+                throw new IllegalStateException("Unexpected value: " + slidervalue);
         }
-        return model.level;
     }
 
 
