@@ -123,7 +123,7 @@ public class MathBrainerController {
 
     @FXML
     private void nextExercise(ActionEvent nextExercise) {
-        model.toSolving();
+        model.toSolving(getSliderLevel());
         updateView();
     }
 
@@ -210,7 +210,7 @@ public class MathBrainerController {
         );
 
 
-        model.toSolving();
+        model.toSolving(getSliderLevel());
         updateView();
     }
 

@@ -8,6 +8,9 @@ import java.util.TimerTask;
 import java.util.function.Consumer;
 
 public class MathBrainerModel {
+    public MathBrainerModel() {
+    }
+
     protected enum State {SOLVING, SOLVED, GAVE_UP}
 
     private State solutionState;
@@ -20,7 +23,10 @@ public class MathBrainerModel {
     private Timer timer;
     private Level level;
 
-    public void toSolving() {
+
+
+
+    public void toSolving(Level level) {
         solutionState = State.SOLVING;
         exercise = ExerciseFactory.getExercise(level);
         setTimer();
