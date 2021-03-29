@@ -69,6 +69,7 @@ public class MathBrainerController {
                 enterAnswerField.clear();
                 enterAnswerField.setEditable(true);
                 displayOutputMessageField.setText(null);
+                levelSlider.setDisable(true);
             }
 
             case SOLVED -> {
@@ -79,6 +80,8 @@ public class MathBrainerController {
                 giveUpButton.setVisible(false);
                 displayOutputMessageField.setText(bundle.getString("success_message"));
                 displayOutputMessageField.setTextFill(Color.web("green"));
+                levelSlider.setDisable(false);
+
             }
 
             case GAVE_UP -> {
@@ -150,7 +153,6 @@ public class MathBrainerController {
 
 
     private Level getSliderLevel(){
-
         int slidervalue = (int) levelSlider.getValue();
         switch (slidervalue){
             case 1:
@@ -171,6 +173,7 @@ public class MathBrainerController {
                 throw new IllegalStateException("Unexpected value: " + slidervalue);
         }
     }
+
 
 
     public void timerCallback(Integer ticksLeft) {

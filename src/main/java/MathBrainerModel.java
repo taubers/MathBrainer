@@ -21,9 +21,6 @@ public class MathBrainerModel {
     private int ticksLeft;
     private Consumer<Integer> timerCallback;
     private Timer timer;
-    private Level level;
-
-
 
 
     public void toSolving(Level level) {
