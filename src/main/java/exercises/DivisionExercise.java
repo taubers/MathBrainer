@@ -16,8 +16,8 @@ public class DivisionExercise extends AbstractExercise {
 
 
         do {
-            a = rand.nextInt(MAX - MIN) + MIN;
-            b = rand.nextInt(MAX - MIN) + MIN;
+            a = rand.nextInt((MAX - MIN) + MIN);
+            b = rand.nextInt((MAX - MIN) + MIN);
             //counter++;
 
         } while (a == 0 || b == 0 || a % b != 0 || b >= a);
