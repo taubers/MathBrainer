@@ -1,11 +1,11 @@
 package exercises;
 
 public class ExerciseParams {
-    protected static int MIN = 2;
-    protected static int MAX = 100;
+    protected int min = 2;
+    protected int max = 100;
 
-    public ExerciseParams(int MIN, int MAX) {
-        this.MIN = MIN;
-        this.MAX = MAX;
+    public ExerciseParams(int min, int max) {
+        this.min = min;
+        this.max = max;
     }
 }

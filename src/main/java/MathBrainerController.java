@@ -92,6 +92,7 @@ public class MathBrainerController {
                 giveUpButton.setVisible(false);
                 displayOutputMessageField.setText(bundle.getString("give_up_message"));
                 displayOutputMessageField.setTextFill(Color.web("orange"));
+                levelSlider.setDisable(false);
             }
         }
 
