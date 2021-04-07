@@ -29,7 +29,7 @@ public class ExerciseFactory {
                         return new SubtractionExercise();
                     case 2:
                         return new DivisionExercise();
-                    case 4:
+                    case 3:
                         return new MultiplicationExercise();
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
@@ -46,7 +46,7 @@ public class ExerciseFactory {
                         return new SubtractionExercise();
                     case 2:
                         return new DivisionExercise();
-                    case 4:
+                    case 3:
                         return new MultiplicationExercise();
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
@@ -63,7 +63,7 @@ public class ExerciseFactory {
                         return new SubtractionExercise();
                     case 2:
                         return new DivisionExercise();
-                    case 4:
+                    case 3:
                         return new MultiplicationExercise();
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
@@ -80,7 +80,7 @@ public class ExerciseFactory {
                         return new SubtractionExercise();
                     case 2:
                         return new DivisionExercise();
-                    case 4:
+                    case 3:
                         return new MultiplicationExercise();
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
@@ -97,7 +97,7 @@ public class ExerciseFactory {
                         return new SubtractionExercise();
                     case 2:
                         return new DivisionExercise();
-                    case 4:
+                    case 3:
                         return new MultiplicationExercise();
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
@@ -114,15 +114,15 @@ public class ExerciseFactory {
                         return new SubtractionExercise();
                     case 2:
                         return new DivisionExercise();
-                    case 4:
+                    case 3:
                         return new MultiplicationExercise();
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
 
                 }
             }
+            default -> {
+                throw new IllegalStateException();}
         }
-
-    return null;
     }
 }
