@@ -2,6 +2,9 @@ package exercises;
 
 
 public class DivisionExercise extends AbstractExercise {
+    public DivisionExercise(ExerciseParams params) {
+        super(params);
+    }
     //long start;
     //long finish;
 

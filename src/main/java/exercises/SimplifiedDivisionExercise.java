@@ -5,6 +5,10 @@ package exercises;
 
 public class SimplifiedDivisionExercise extends AbstractExercise {
 
+    public SimplifiedDivisionExercise(ExerciseParams params) {
+        super(params);
+    }
+
     @Override
     protected void initializeArguments() {
         secondNumber = rand.nextInt(MAX - MIN) + MIN;
