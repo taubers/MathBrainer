@@ -19,7 +19,7 @@ public class ExerciseFactory {
                 }
             }
 
-            case LEVEL_2 -> {
+            case LEVEL_2, LEVEL_3, LEVEL_4, LEVEL_5, LEVEL_6, LEVEL_7 -> {
                 int exercisePicker = new SecureRandom().nextInt(4);
                 switch (exercisePicker) {
                     case 0:
@@ -32,94 +32,9 @@ public class ExerciseFactory {
                         return createMultiplicationExercise(level);
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
-
                 }
             }
 
-            case LEVEL_3 -> {
-                int exercisePicker = new SecureRandom().nextInt(4);
-                switch (exercisePicker) {
-                    case 0:
-                        return createAdditionExercise(level);
-                    case 1:
-                        return createSubtractionExercise(level);
-                    case 2:
-                        return createDivisionExercise(level);
-                    case 3:
-                        return createMultiplicationExercise(level);
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + exercisePicker);
-
-                }
-            }
-
-            case LEVEL_4 -> {
-                int exercisePicker = new SecureRandom().nextInt(4);
-                switch (exercisePicker) {
-                    case 0:
-                        return createAdditionExercise(level);
-                    case 1:
-                        return createSubtractionExercise(level);
-                    case 2:
-                        return createDivisionExercise(level);
-                    case 3:
-                        return createMultiplicationExercise(level);
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + exercisePicker);
-
-                }
-            }
-
-            case LEVEL_5 -> {
-                int exercisePicker = new SecureRandom().nextInt(4);
-                switch (exercisePicker) {
-                    case 0:
-                        return createAdditionExercise(level);
-                    case 1:
-                        return createSubtractionExercise(level);
-                    case 2:
-                        return createDivisionExercise(level);
-                    case 3:
-                        return createMultiplicationExercise(level);
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + exercisePicker);
-
-                }
-            }
-
-            case LEVEL_6 -> {
-                int exercisePicker = new SecureRandom().nextInt(4);
-                switch (exercisePicker) {
-                    case 0:
-                        return createAdditionExercise(level);
-                    case 1:
-                        return createSubtractionExercise(level);
-                    case 2:
-                        return createDivisionExercise(level);
-                    case 3:
-                        return createMultiplicationExercise(level);
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + exercisePicker);
-
-                }
-            }
-
-            case LEVEL_7 -> {
-                int exercisePicker = new SecureRandom().nextInt(4);
-                switch (exercisePicker) {
-                    case 0:
-                        return createAdditionExercise(level);
-                    case 1:
-                        return createSubtractionExercise(level);
-                    case 2:
-                        return createDivisionExercise(level);
-                    case 3:
-                        return createMultiplicationExercise(level);
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + exercisePicker);
-
-                }
-            }
             default -> {
                 throw new IllegalStateException();}
         }
