@@ -8,10 +8,10 @@ public class DivisionExercise extends AbstractExercise {
     //long start;
     //long finish;
 
-    @Override
-    protected void initializeArguments() {
-        //this.start = System.nanoTime();
-        //int counter = 0;
+   @Override
+    protected void initializeArguments(int min1, int max1, int min2, int max2) {
+      //  this.start = System.nanoTime();
+      //  int counter = 0;
 
 
         int a;
@@ -19,8 +19,8 @@ public class DivisionExercise extends AbstractExercise {
 
 
         do {
-            a = rand.nextInt((MAX - MIN) + MIN);
-            b = rand.nextInt((MAX - MIN) + MIN);
+            a = rand.nextInt((max1 - min1) +1 ) + min1;
+            b = rand.nextInt((max2 - min2) +1 ) + min2;
             //counter++;
 
         } while (a == 0 || b == 0 || a % b != 0 || b >= a);

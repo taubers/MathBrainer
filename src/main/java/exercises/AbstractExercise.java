@@ -3,7 +3,7 @@ package exercises;
 import java.util.Random;
 
 public abstract class AbstractExercise {
-    private final ExerciseParams params;
+    private ExerciseParams params;
 
     public Random rand = new Random();
 
@@ -18,15 +18,15 @@ public abstract class AbstractExercise {
 
     public AbstractExercise(ExerciseParams params) {
         this.params = params;
-        initializeArguments();
+        initializeArguments(params.getMin1(),params.getMax1(),params.getMin2(),params.getMax2());
         initializeOperator();
         calculateExpectedResult();
     }
 
 
-    protected void initializeArguments() {
-        firstNumber = rand.nextInt(MAX - MIN) + MIN;
-        secondNumber = rand.nextInt(MAX - MIN) + MIN;
+    protected void initializeArguments(int min1, int max1, int min2, int max2) {
+        firstNumber = rand.nextInt((max1 - min1) +1 ) + min1;
+        secondNumber = rand.nextInt((max2 - min2) +1 ) + min2;
     }
 
     protected abstract void initializeOperator();
