@@ -9,7 +9,7 @@ public class SimplifiedDivisionExercise extends AbstractExercise {
         super(params);
     }
 
-    //@Override
+    @Override
     protected void initializeArguments(ExerciseParams params) {
         secondNumber = rand.nextInt((params.getMax2() - params.getMin2()) +1 ) + params.getMin2();
         result = rand.nextInt((params.getMax1() - params.getMin1()) +1 ) + params.getMin1();
