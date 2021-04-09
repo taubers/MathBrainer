@@ -9,7 +9,7 @@ public class DivisionExercise extends AbstractExercise {
     //long finish;
 
    @Override
-    protected void initializeArguments(int min1, int max1, int min2, int max2) {
+    protected void initializeArguments(ExerciseParams params) {
       //  this.start = System.nanoTime();
       //  int counter = 0;
 
@@ -19,8 +19,8 @@ public class DivisionExercise extends AbstractExercise {
 
 
         do {
-            a = rand.nextInt((max1 - min1) +1 ) + min1;
-            b = rand.nextInt((max2 - min2) +1 ) + min2;
+            a = rand.nextInt((params.getMax1() - params.getMin1()) +1 ) + params.getMin1();
+            b = rand.nextInt((params.getMax2() - params.getMin2()) +1 ) + params.getMin2();
             //counter++;
 
         } while (a == 0 || b == 0 || a % b != 0 || b >= a);

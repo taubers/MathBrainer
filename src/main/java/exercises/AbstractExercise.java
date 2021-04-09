@@ -18,15 +18,15 @@ public abstract class AbstractExercise {
 
     public AbstractExercise(ExerciseParams params) {
         this.params = params;
-        initializeArguments(params.getMin1(),params.getMax1(),params.getMin2(),params.getMax2());
+        initializeArguments(params);
         initializeOperator();
         calculateExpectedResult();
     }
 
 
-    protected void initializeArguments(int min1, int max1, int min2, int max2) {
-        firstNumber = rand.nextInt((max1 - min1) +1 ) + min1;
-        secondNumber = rand.nextInt((max2 - min2) +1 ) + min2;
+    protected void initializeArguments(ExerciseParams params) {
+        firstNumber = rand.nextInt((params.getMax1() - params.getMin1()) +1 ) + params.getMin1();
+        secondNumber = rand.nextInt((params.getMax2() - params.getMin2()) +1 ) + params.getMin2();
     }
 
     protected abstract void initializeOperator();
