@@ -1,3 +1,4 @@
+import exercises.Level;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,6 +15,7 @@ import java.util.ResourceBundle;
 public class MathBrainerController {
 
     MathBrainerModel model = new MathBrainerModel();
+
 
     @FXML
     ResourceBundle bundle = ResourceBundle.getBundle("language", Locale.forLanguageTag("lv"));
@@ -67,6 +69,7 @@ public class MathBrainerController {
                 enterAnswerField.clear();
                 enterAnswerField.setEditable(true);
                 displayOutputMessageField.setText(null);
+                levelSlider.setDisable(true);
             }
 
             case SOLVED -> {
@@ -77,6 +80,8 @@ public class MathBrainerController {
                 giveUpButton.setVisible(false);
                 displayOutputMessageField.setText(bundle.getString("success_message"));
                 displayOutputMessageField.setTextFill(Color.web("green"));
+                levelSlider.setDisable(false);
+
             }
 
             case GAVE_UP -> {
@@ -87,6 +92,7 @@ public class MathBrainerController {
                 giveUpButton.setVisible(false);
                 displayOutputMessageField.setText(bundle.getString("give_up_message"));
                 displayOutputMessageField.setTextFill(Color.web("orange"));
+                levelSlider.setDisable(false);
             }
         }
 
@@ -121,7 +127,7 @@ public class MathBrainerController {
 
     @FXML
     private void nextExercise(ActionEvent nextExercise) {
-        model.toSolving();
+        model.toSolving(getSliderLevel());
         updateView();
     }
 
@@ -146,6 +152,31 @@ public class MathBrainerController {
         });
     }
 
+
+    private Level getSliderLevel(){
+        int slidervalue = (int) levelSlider.getValue();
+        switch (slidervalue){
+            case 1:
+                return Level.LEVEL_1;
+            case 2:
+                return Level.LEVEL_2;
+            case 3:
+                return Level.LEVEL_3;
+            case 4:
+                return Level.LEVEL_4;
+            case 5:
+                return Level.LEVEL_5;
+            case 6:
+                return Level.LEVEL_6;
+            case 7:
+                return Level.LEVEL_7;
+            default:
+                throw new IllegalStateException("Unexpected value: " + slidervalue);
+        }
+    }
+
+
+
     public void timerCallback(Integer ticksLeft) {
         showCountdownLabel.setText(String.valueOf(ticksLeft));
     }
@@ -157,6 +188,7 @@ public class MathBrainerController {
                 (observable, oldValue, newValue) -> {
                     if (levelSlider.getValue() == 1) {
                         levelName.setText(bundle.getString("difficulty_level_1_name"));
+
                     }
                     if (levelSlider.getValue() == 2) {
                         levelName.setText(bundle.getString("difficulty_level_2_name"));
@@ -181,7 +213,8 @@ public class MathBrainerController {
                 }
         );
 
-        model.toSolving();
+
+        model.toSolving(getSliderLevel());
         updateView();
     }
 

@@ -2,13 +2,16 @@ package exercises;
 
 
 public class DivisionExercise extends AbstractExercise {
+    public DivisionExercise(ExerciseParams params) {
+        super(params);
+    }
     //long start;
     //long finish;
 
-    @Override
-    protected void initializeArguments() {
-        //this.start = System.nanoTime();
-        //int counter = 0;
+   @Override
+    protected void initializeArguments(ExerciseParams params) {
+      //  this.start = System.nanoTime();
+      //  int counter = 0;
 
 
         int a;
@@ -16,8 +19,8 @@ public class DivisionExercise extends AbstractExercise {
 
 
         do {
-            a = rand.nextInt(MAX - MIN) + MIN;
-            b = rand.nextInt(MAX - MIN) + MIN;
+            a = rand.nextInt((params.getMax1() - params.getMin1()) +1 ) + params.getMin1();
+            b = rand.nextInt((params.getMax2() - params.getMin2()) +1 ) + params.getMin2();
             //counter++;
 
         } while (a == 0 || b == 0 || a % b != 0 || b >= a);
