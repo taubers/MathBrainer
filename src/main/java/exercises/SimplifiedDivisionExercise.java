@@ -25,6 +25,6 @@ public class SimplifiedDivisionExercise extends AbstractExercise {
     public void calculateExpectedResult() {
         result = getFirstNumber() / getSecondNumber();
     }
-    //
+
 
 }
