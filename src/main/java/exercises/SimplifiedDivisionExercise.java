@@ -5,9 +5,7 @@ package exercises;
 
 public class SimplifiedDivisionExercise extends AbstractExercise {
 
-    public SimplifiedDivisionExercise(ExerciseParams params) {
-        super(params);
-    }
+
 
     @Override
     protected void initializeArguments(ExerciseParams params) {

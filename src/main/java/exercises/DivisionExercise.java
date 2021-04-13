@@ -2,9 +2,10 @@ package exercises;
 
 
 public class DivisionExercise extends AbstractExercise {
-    public DivisionExercise(ExerciseParams params) {
-        super(params);
+    public DivisionExercise(ExerciseParams exerciseParams) {
     }
+
+
     //long start;
     //long finish;
 
@@ -44,6 +45,39 @@ public class DivisionExercise extends AbstractExercise {
     @Override
     public void calculateExpectedResult() {
         result = getFirstNumber() / getSecondNumber();
+    }
+
+    public static AbstractExercise createDivisionExercise(Level level) {
+        switch (level){
+            case LEVEL_2 -> {
+                ExerciseParams exerciseParams = new ExerciseParams(2,10, 2, 10);
+                return new DivisionExercise(exerciseParams);
+            }
+            case LEVEL_3 -> {
+                ExerciseParams exerciseParams = new ExerciseParams(80,200, 2, 15);
+                return new DivisionExercise(exerciseParams);
+            }
+            case LEVEL_4 -> {
+                ExerciseParams exerciseParams = new ExerciseParams(80,200, 2, 20);
+                return new DivisionExercise(exerciseParams);
+            }
+            case LEVEL_5 -> {
+                ExerciseParams exerciseParams = new ExerciseParams(150,300, 2, 25);
+                return new DivisionExercise(exerciseParams);
+            }
+            case LEVEL_6 -> {
+                ExerciseParams exerciseParams = new ExerciseParams(190,900, 4, 32);
+                return new DivisionExercise(exerciseParams);
+            }
+            case LEVEL_7 -> {
+                ExerciseParams exerciseParams = new ExerciseParams(190,900, 4, 35);
+                return new DivisionExercise(exerciseParams);
+            }
+            default -> {
+                throw new IllegalStateException();
+            }
+        }
+
     }
 
     /*private void logRandomTrials(int counter) {

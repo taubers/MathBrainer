@@ -5,19 +5,16 @@ import java.util.Random;
 public abstract class AbstractExercise {
     private ExerciseParams params;
 
-    public Random rand = new Random();
+    protected Random rand = new Random();
 
 
-    //protected static final int MIN = 2;
-    //protected static final int MAX = 100;
     protected int firstNumber;
     protected int secondNumber;
     protected String operator;
     protected int result;
 
 
-    public AbstractExercise(ExerciseParams params) {
-        this.params = params;
+    public AbstractExercise() {
         initializeArguments(params);
         initializeOperator();
         calculateExpectedResult();
