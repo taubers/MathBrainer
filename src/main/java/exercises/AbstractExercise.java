@@ -4,7 +4,6 @@ import java.util.Random;
 
 public abstract class AbstractExercise {
     protected ExerciseParams exerciseParams;
-    protected Level level;
 
     protected Random rand = new Random();
 

@@ -2,7 +2,7 @@ package exercises;
 
 public class AdditionExercise extends AbstractExercise {
 
-    public AdditionExercise() {
+    public AdditionExercise(Level level) {
         getAdditionExerciseParams(level);
     }
 

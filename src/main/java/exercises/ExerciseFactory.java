@@ -12,7 +12,7 @@ public class ExerciseFactory {
                 int exercisePicker = new SecureRandom().nextInt(2);
                 switch (exercisePicker) {
                     case 0:
-                        return new AdditionExercise();
+                        return new AdditionExercise(level);
                     case 1:
                         return new SubtractionExercise(level);
                     default:
@@ -24,7 +24,7 @@ public class ExerciseFactory {
                 int exercisePicker = new SecureRandom().nextInt(4);
                 switch (exercisePicker) {
                     case 0:
-                        return new AdditionExercise();
+                        return new AdditionExercise(level);
                     case 1:
                         return new SubtractionExercise(level);
                     case 2:
