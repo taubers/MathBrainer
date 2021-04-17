@@ -3,7 +3,8 @@ package exercises;
 import java.util.Random;
 
 public abstract class AbstractExercise {
-    private ExerciseParams params;
+    protected ExerciseParams exerciseParams;
+    protected Level level;
 
     protected Random rand = new Random();
 
@@ -15,7 +16,7 @@ public abstract class AbstractExercise {
 
 
     public AbstractExercise() {
-        initializeArguments(params);
+        initializeArguments(exerciseParams);
         initializeOperator();
         calculateExpectedResult();
     }

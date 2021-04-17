@@ -2,8 +2,8 @@ package exercises;
 
 public class SubtractionExercise extends AbstractExercise {
 
-
-    public SubtractionExercise(ExerciseParams exerciseParams) {
+    public SubtractionExercise(Level level){
+        getSubtractionExerciseParams(level);
     }
 
     @Override
@@ -18,36 +18,37 @@ public class SubtractionExercise extends AbstractExercise {
 
 
 
-    public static AbstractExercise createSubtractionExercise(Level level) {
+    public ExerciseParams getSubtractionExerciseParams(Level level) {
         switch (level){
             case LEVEL_1, LEVEL_2 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(2,10, 2, 10);
-                return new SubtractionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(2,10, 2, 10);
+                break;
             }
             case LEVEL_3 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(50,900, 12, 849);
-                return new SubtractionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(50,900, 12, 849);
+                break;
             }
             case LEVEL_4 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(200,900, 200, 900);
-                return new SubtractionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(200,900, 200, 900);
+                break;
             }
             case LEVEL_5 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(300,900, 300, 900);
-                return new SubtractionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(300,900, 300, 900);
+                break;
             }
             case LEVEL_6 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(600,1800, 600, 1800);
-                return new SubtractionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(600,1800, 600, 1800);
+                break;
             }
             case LEVEL_7 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(600,1900, 600, 1800);
-                return new SubtractionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(600,1900, 600, 1800);
+                break;
             }
             default -> {
                 throw new IllegalStateException();
             }
         }
+        return exerciseParams;
     }
 
 }

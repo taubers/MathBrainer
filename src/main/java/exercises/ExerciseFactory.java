@@ -3,10 +3,6 @@ package exercises;
 
 import java.security.SecureRandom;
 
-import static exercises.AdditionExercise.createAdditionExercise;
-import static exercises.DivisionExercise.createDivisionExercise;
-import static exercises.MultiplicationExercise.createMultiplicationExercise;
-import static exercises.SubtractionExercise.createSubtractionExercise;
 
 public class ExerciseFactory {
 
@@ -16,9 +12,9 @@ public class ExerciseFactory {
                 int exercisePicker = new SecureRandom().nextInt(2);
                 switch (exercisePicker) {
                     case 0:
-                        return createAdditionExercise(level);
+                        return new AdditionExercise();
                     case 1:
-                        return createSubtractionExercise(level);
+                        return new SubtractionExercise(level);
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
                 }
@@ -28,13 +24,13 @@ public class ExerciseFactory {
                 int exercisePicker = new SecureRandom().nextInt(4);
                 switch (exercisePicker) {
                     case 0:
-                        return createAdditionExercise(level);
+                        return new AdditionExercise();
                     case 1:
-                        return createSubtractionExercise(level);
+                        return new SubtractionExercise(level);
                     case 2:
-                        return createDivisionExercise(level);
+                        return new DivisionExercise(level);
                     case 3:
-                        return createMultiplicationExercise(level);
+                        return new MultiplicationExercise(level);
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
                 }

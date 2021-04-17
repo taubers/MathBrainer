@@ -2,7 +2,8 @@ package exercises;
 
 
 public class DivisionExercise extends AbstractExercise {
-    public DivisionExercise(ExerciseParams exerciseParams) {
+    public DivisionExercise(Level level) {
+        getDivisionExerciseParams(level);
     }
 
 
@@ -47,37 +48,40 @@ public class DivisionExercise extends AbstractExercise {
         result = getFirstNumber() / getSecondNumber();
     }
 
-    public static AbstractExercise createDivisionExercise(Level level) {
+
+
+    public ExerciseParams getDivisionExerciseParams(Level level) {
         switch (level){
             case LEVEL_2 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(2,10, 2, 10);
-                return new DivisionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(2,10, 2, 10);
+                break;
             }
             case LEVEL_3 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(80,200, 2, 15);
-                return new DivisionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(80,200, 2, 15);
+                break;
             }
             case LEVEL_4 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(80,200, 2, 20);
-                return new DivisionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(80,200, 2, 20);
+                break;
             }
             case LEVEL_5 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(150,300, 2, 25);
-                return new DivisionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(150,300, 2, 25);
+                break;
             }
             case LEVEL_6 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(190,900, 4, 32);
-                return new DivisionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(190,900, 4, 32);
+                break;
             }
             case LEVEL_7 -> {
-                ExerciseParams exerciseParams = new ExerciseParams(190,900, 4, 35);
-                return new DivisionExercise(exerciseParams);
+                exerciseParams = new ExerciseParams(190,900, 4, 35);
+                break;
             }
             default -> {
                 throw new IllegalStateException();
             }
         }
 
+        return exerciseParams;
     }
 
     /*private void logRandomTrials(int counter) {
