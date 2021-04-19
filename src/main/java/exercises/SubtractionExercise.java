@@ -2,9 +2,6 @@ package exercises;
 
 public class SubtractionExercise extends AbstractExercise {
 
-    public SubtractionExercise(Level level){
-        getSubtractionExerciseParams(level);
-    }
 
     @Override
     protected void initializeOperator() {
@@ -18,7 +15,8 @@ public class SubtractionExercise extends AbstractExercise {
 
 
 
-    public ExerciseParams getSubtractionExerciseParams(Level level) {
+    @Override
+    public void initializeExerciseParams(){
         switch (level){
             case LEVEL_1, LEVEL_2 -> {
                 exerciseParams = new ExerciseParams(2,10, 2, 10);
@@ -48,7 +46,7 @@ public class SubtractionExercise extends AbstractExercise {
                 throw new IllegalStateException();
             }
         }
-        return exerciseParams;
+        //return exerciseParams;
     }
 
 }

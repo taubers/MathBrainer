@@ -4,6 +4,7 @@ import java.util.Random;
 
 public abstract class AbstractExercise {
     protected ExerciseParams exerciseParams;
+    protected Level level;
 
     protected Random rand = new Random();
 
@@ -15,6 +16,7 @@ public abstract class AbstractExercise {
 
 
     public AbstractExercise() {
+        initializeExerciseParams();
         initializeArguments(exerciseParams);
         initializeOperator();
         calculateExpectedResult();
@@ -27,6 +29,7 @@ public abstract class AbstractExercise {
     }
 
     protected abstract void initializeOperator();
+    protected abstract void initializeExerciseParams();
 
     public int getFirstNumber() {
         return firstNumber;

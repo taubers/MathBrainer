@@ -2,11 +2,6 @@ package exercises;
 
 public class MultiplicationExercise extends AbstractExercise {
 
-
-    public MultiplicationExercise(Level level) {
-        getMultiplicationExerciseParams(level);
-    }
-
     @Override
     protected void initializeOperator() {
         operator = "×";
@@ -17,8 +12,8 @@ public class MultiplicationExercise extends AbstractExercise {
         result = getFirstNumber() * getSecondNumber();
     }
 
-
-    public ExerciseParams getMultiplicationExerciseParams(Level level) {
+    @Override
+    protected void initializeExerciseParams() {
         switch (level){
             case LEVEL_2 -> {
                 exerciseParams = new ExerciseParams(2,10, 2, 10);
@@ -48,7 +43,7 @@ public class MultiplicationExercise extends AbstractExercise {
                 throw new IllegalStateException();
             }
         }
-        return exerciseParams;
+        //return exerciseParams;
     }
 
 }

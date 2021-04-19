@@ -2,9 +2,6 @@ package exercises;
 
 public class AdditionExercise extends AbstractExercise {
 
-    public AdditionExercise(Level level) {
-        getAdditionExerciseParams(level);
-    }
 
 
     @Override
@@ -17,7 +14,8 @@ public class AdditionExercise extends AbstractExercise {
         result = getFirstNumber() + getSecondNumber();
     }
 
-    public void getAdditionExerciseParams(Level level) {
+    @Override
+    public void initializeExerciseParams() {
         switch (level) {
             case LEVEL_1, LEVEL_2 -> {
                 exerciseParams = new ExerciseParams(2, 10, 2, 10);
