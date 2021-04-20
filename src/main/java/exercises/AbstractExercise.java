@@ -3,17 +3,12 @@ package exercises;
 import java.util.Random;
 
 public abstract class AbstractExercise {
-
-
-
     protected Random rand = new Random();
-
 
     protected int firstNumber;
     protected int secondNumber;
     protected String operator;
     protected int result;
-    protected ExerciseParams exerciseParams;
 
 
     public AbstractExercise(Level level) {
@@ -33,6 +28,8 @@ public abstract class AbstractExercise {
 
     protected abstract ExerciseParams initializeExerciseParams(Level level);
 
+    protected abstract void calculateExpectedResult();
+
     public int getFirstNumber() {
         return firstNumber;
     }
@@ -49,7 +46,7 @@ public abstract class AbstractExercise {
         return operator;
     }
 
-    protected abstract void calculateExpectedResult();
+
 
 }
 
