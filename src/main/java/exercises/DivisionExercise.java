@@ -3,14 +3,18 @@ package exercises;
 
 public class DivisionExercise extends AbstractExercise {
 
+    public DivisionExercise(Level level) {
+        super(level);
+    }
+
 
     //long start;
     //long finish;
 
-   @Override
+    @Override
     protected void initializeArguments(ExerciseParams params) {
-      //  this.start = System.nanoTime();
-      //  int counter = 0;
+        //  this.start = System.nanoTime();
+        //  int counter = 0;
 
 
         int a;
@@ -18,8 +22,8 @@ public class DivisionExercise extends AbstractExercise {
 
 
         do {
-            a = rand.nextInt((params.getMax1() - params.getMin1()) +1 ) + params.getMin1();
-            b = rand.nextInt((params.getMax2() - params.getMin2()) +1 ) + params.getMin2();
+            a = rand.nextInt((params.getMax1() - params.getMin1()) + 1) + params.getMin1();
+            b = rand.nextInt((params.getMax2() - params.getMin2()) + 1) + params.getMin2();
             //counter++;
 
         } while (a == 0 || b == 0 || a % b != 0 || b >= a);
@@ -46,38 +50,30 @@ public class DivisionExercise extends AbstractExercise {
     }
 
     @Override
-    public void initializeExerciseParams() {
-        switch (level){
+    public ExerciseParams initializeExerciseParams(Level level) {
+        switch (level) {
             case LEVEL_2 -> {
-                exerciseParams = new ExerciseParams(2,10, 2, 10);
-                break;
+                return new ExerciseParams(2, 10, 2, 10);
             }
             case LEVEL_3 -> {
-                exerciseParams = new ExerciseParams(80,200, 2, 15);
-                break;
+                return new ExerciseParams(80, 200, 2, 15);
             }
             case LEVEL_4 -> {
-                exerciseParams = new ExerciseParams(80,200, 2, 20);
-                break;
+                return new ExerciseParams(80, 200, 2, 20);
             }
             case LEVEL_5 -> {
-                exerciseParams = new ExerciseParams(150,300, 2, 25);
-                break;
+                return new ExerciseParams(150, 300, 2, 25);
             }
             case LEVEL_6 -> {
-                exerciseParams = new ExerciseParams(190,900, 4, 32);
-                break;
+                return new ExerciseParams(190, 900, 4, 32);
             }
             case LEVEL_7 -> {
-                exerciseParams = new ExerciseParams(190,900, 4, 35);
-                break;
+                return new ExerciseParams(190, 900, 4, 35);
             }
             default -> {
                 throw new IllegalStateException();
             }
         }
-
-        //return exerciseParams;
     }
 
     /*private void logRandomTrials(int counter) {

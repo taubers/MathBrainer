@@ -3,8 +3,8 @@ package exercises;
 import java.util.Random;
 
 public abstract class AbstractExercise {
-    protected ExerciseParams exerciseParams;
-    protected Level level;
+
+
 
     protected Random rand = new Random();
 
@@ -13,10 +13,11 @@ public abstract class AbstractExercise {
     protected int secondNumber;
     protected String operator;
     protected int result;
+    protected ExerciseParams exerciseParams;
 
 
-    public AbstractExercise() {
-        initializeExerciseParams();
+    public AbstractExercise(Level level) {
+        ExerciseParams exerciseParams = initializeExerciseParams(level);
         initializeArguments(exerciseParams);
         initializeOperator();
         calculateExpectedResult();
@@ -24,12 +25,13 @@ public abstract class AbstractExercise {
 
 
     protected void initializeArguments(ExerciseParams params) {
-        firstNumber = rand.nextInt((params.getMax1() - params.getMin1()) +1 ) + params.getMin1();
-        secondNumber = rand.nextInt((params.getMax2() - params.getMin2()) +1 ) + params.getMin2();
+        firstNumber = rand.nextInt((params.getMax1() - params.getMin1()) + 1) + params.getMin1();
+        secondNumber = rand.nextInt((params.getMax2() - params.getMin2()) + 1) + params.getMin2();
     }
 
     protected abstract void initializeOperator();
-    protected abstract void initializeExerciseParams();
+
+    protected abstract ExerciseParams initializeExerciseParams(Level level);
 
     public int getFirstNumber() {
         return firstNumber;

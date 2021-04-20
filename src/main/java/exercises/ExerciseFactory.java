@@ -12,9 +12,9 @@ public class ExerciseFactory {
                 int exercisePicker = new SecureRandom().nextInt(2);
                 switch (exercisePicker) {
                     case 0:
-                        return new AdditionExercise();
+                        return new AdditionExercise(level);
                     case 1:
-                        return new SubtractionExercise();
+                        return new SubtractionExercise(level);
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
                 }
@@ -24,13 +24,13 @@ public class ExerciseFactory {
                 int exercisePicker = new SecureRandom().nextInt(4);
                 switch (exercisePicker) {
                     case 0:
-                        return new AdditionExercise();
+                        return new AdditionExercise(level);
                     case 1:
-                        return new SubtractionExercise();
+                        return new SubtractionExercise(level);
                     case 2:
-                        return new DivisionExercise();
+                        return new DivisionExercise(level);
                     case 3:
-                        return new MultiplicationExercise();
+                        return new MultiplicationExercise(level);
                     default:
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
                 }
