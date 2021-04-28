@@ -16,7 +16,6 @@ public class MathBrainerController {
 
     MathBrainerModel model = new MathBrainerModel();
 
-
     @FXML
     ResourceBundle bundle = ResourceBundle.getBundle("language", Locale.forLanguageTag("lv"));
 
@@ -61,8 +60,7 @@ public class MathBrainerController {
 
             case SOLVING -> {
 
-                String expression = model.getExercise().getFirstNumber() + " " + model.getExercise().getOperator() + " " + model.getExercise().getSecondNumber() + " = ";
-                displayExerciseField.setText(expression);
+                displayExerciseField.setText(model.getExercise().getExpression());
                 nextExerciseButton.setVisible(false);
                 checkAnswerButton.setVisible(true);
                 giveUpButton.setVisible(true);

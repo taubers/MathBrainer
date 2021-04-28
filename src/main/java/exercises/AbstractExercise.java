@@ -46,6 +46,10 @@ public abstract class AbstractExercise {
         return operator;
     }
 
+    public String getExpression(){
+        String expression =  getFirstNumber() + " " + getOperator() + " " + getSecondNumber();
+        return expression;
+    }
 
 
 }
