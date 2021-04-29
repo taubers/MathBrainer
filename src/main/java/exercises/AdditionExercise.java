@@ -7,8 +7,9 @@ public class AdditionExercise extends AbstractExercise {
     }
 
     @Override
-    protected void initializeOperator() {
+    protected String initializeOperator() {
         operator = "+";
+        return null;
     }
 
     @Override

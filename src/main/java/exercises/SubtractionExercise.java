@@ -10,8 +10,8 @@ public class SubtractionExercise extends AbstractExercise {
     }
 
     @Override
-    protected void initializeOperator() {
-        operator = "-";
+    protected String initializeOperator() {
+        return operator = "-";
     }
 
     @Override

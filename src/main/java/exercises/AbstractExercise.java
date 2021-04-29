@@ -24,7 +24,7 @@ public abstract class AbstractExercise {
         secondNumber = rand.nextInt((params.getMax2() - params.getMin2()) + 1) + params.getMin2();
     }
 
-    protected abstract void initializeOperator();
+    protected abstract String initializeOperator();
 
     protected abstract ExerciseParams initializeExerciseParams(Level level);
 
@@ -47,8 +47,7 @@ public abstract class AbstractExercise {
     }
 
     public String getExpression(){
-        String expression =  getFirstNumber() + " " + getOperator() + " " + getSecondNumber();
-        return expression;
+        return getFirstNumber() + " " + getOperator() + " " + getSecondNumber();
     }
 
 
