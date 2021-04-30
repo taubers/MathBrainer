@@ -2,7 +2,9 @@ package exercises;
 
 public class ThreeArgumentExercise extends AbstractExercise {
     private int thirdNumber;
+    private static final String[] FIRST_OPERATOR_LIST = {"+", "-"};
     private static final String[] SECOND_OPERATOR_LIST = {"*", "/"};
+    private String firstOperator;
     private String secondOperator;
 
     public ThreeArgumentExercise(Level level) {
@@ -12,8 +14,11 @@ public class ThreeArgumentExercise extends AbstractExercise {
 
     @Override
     protected void initializeOperator() {
-        int operatorIndex = rand.nextInt(SECOND_OPERATOR_LIST.length);
-        secondOperator = SECOND_OPERATOR_LIST[operatorIndex];
+        int firstOperatorIndex = rand.nextInt(FIRST_OPERATOR_LIST.length);
+        int secondOperatorIndex = rand.nextInt(SECOND_OPERATOR_LIST.length);
+
+        firstOperator = FIRST_OPERATOR_LIST[firstOperatorIndex];
+        secondOperator = SECOND_OPERATOR_LIST[secondOperatorIndex];
     }
 
     @Override
@@ -39,11 +44,11 @@ public class ThreeArgumentExercise extends AbstractExercise {
 
     @Override
     protected void calculateExpectedResult() {
-        result = Integer.parseInt(getFirstNumber() + getOperator() + getSecondNumber() + secondOperator + thirdNumber);
+        result = Integer.parseInt(getFirstNumber() + firstOperator + getSecondNumber() + secondOperator + thirdNumber);
     }
 
     @Override
     public String getExpression() {
-        return getFirstNumber() + " " + getOperator() + " " + getSecondNumber() + " " + secondOperator + " " + thirdNumber;
+        return getFirstNumber() + " " + firstOperator + " " + getSecondNumber() + " " + secondOperator + " " + thirdNumber;
     }
 }
