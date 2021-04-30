@@ -40,8 +40,8 @@ public class DivisionExercise extends AbstractExercise {
 
 
     @Override
-    protected String initializeOperator() {
-        return operator = "÷";
+    protected void initializeOperator() {
+     operator = "÷";
     }
 
     @Override

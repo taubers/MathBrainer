@@ -24,7 +24,7 @@ public abstract class AbstractExercise {
         secondNumber = rand.nextInt((params.getMax2() - params.getMin2()) + 1) + params.getMin2();
     }
 
-    protected abstract String initializeOperator();
+    protected abstract void initializeOperator();
 
     protected abstract ExerciseParams initializeExerciseParams(Level level);
 

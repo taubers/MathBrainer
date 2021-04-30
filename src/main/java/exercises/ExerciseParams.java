@@ -2,10 +2,14 @@ package exercises;
 
 public class ExerciseParams {
     private final int min1;
-    private final int max1;
     private final int min2;
-    private final int max2;
+    //private final int min3;
+    //private final int min4;
 
+    private final int max1;
+    private final int max2;
+    //private final int max3;
+    //private final int max4;
 
     public ExerciseParams(int min1, int max1, int min2, int max2) {
         this.min1 = min1;

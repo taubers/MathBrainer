@@ -7,8 +7,8 @@ public class MultiplicationExercise extends AbstractExercise {
     }
 
     @Override
-    protected String initializeOperator() {
-        return operator = "×";
+    protected void initializeOperator() {
+       operator = "×";
     }
 
     @Override
