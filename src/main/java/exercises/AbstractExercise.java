@@ -11,7 +11,7 @@ public abstract class AbstractExercise {
     protected int result;
 
 
-    public AbstractExercise(Level level) {
+    public AbstractExercise(Level level){
         ExerciseParams exerciseParams = initializeExerciseParams(level);
         initializeArguments(exerciseParams);
         initializeOperator();

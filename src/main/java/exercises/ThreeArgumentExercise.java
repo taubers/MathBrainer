@@ -1,11 +1,20 @@
 package exercises;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 public class ThreeArgumentExercise extends AbstractExercise {
-    private int thirdNumber;
+    ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
+    ScriptEngine scriptEngine = scriptEngineManager.getEngineByName("JavaScript");
+
+
+    private int thirdNumber = 1;
     private static final String[] FIRST_OPERATOR_LIST = {"+", "-"};
     private static final String[] SECOND_OPERATOR_LIST = {"*", "/"};
     private String firstOperator;
     private String secondOperator;
+    private int evaluatedResult;
 
     public ThreeArgumentExercise(Level level) {
         super(level);
@@ -42,13 +51,26 @@ public class ThreeArgumentExercise extends AbstractExercise {
         }
     }
 
-    @Override
-    protected void calculateExpectedResult() {
-        result = Integer.parseInt(getFirstNumber() + firstOperator + getSecondNumber() + secondOperator + thirdNumber);
-    }
 
-    @Override
+
+
+
     public String getExpression() {
         return getFirstNumber() + " " + firstOperator + " " + getSecondNumber() + " " + secondOperator + " " + thirdNumber;
     }
+
+    {
+        try {
+            evaluatedResult = ((Number) scriptEngine.eval(getFirstNumber() + firstOperator + getSecondNumber() + secondOperator + thirdNumber)).intValue();
+        } catch (ScriptException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void calculateExpectedResult() {
+        result = evaluatedResult;
+        System.out.println(result);
+    }
+
 }

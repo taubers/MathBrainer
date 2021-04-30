@@ -20,7 +20,7 @@ public class ExerciseFactory {
                 }
             }
 
-            case LEVEL_2, LEVEL_3, LEVEL_4, LEVEL_5, LEVEL_6, LEVEL_7 -> {
+            case LEVEL_2, LEVEL_3, LEVEL_4, LEVEL_5, LEVEL_6 -> {
                 int exercisePicker = new SecureRandom().nextInt(4);
                 switch (exercisePicker) {
                     case 0:
@@ -35,6 +35,11 @@ public class ExerciseFactory {
                         throw new IllegalStateException("Unexpected value: " + exercisePicker);
                 }
             }
+
+            case LEVEL_7 -> {
+                return new ThreeArgumentExercise(level);
+                }
+
 
             default -> {
                 throw new IllegalStateException();}
