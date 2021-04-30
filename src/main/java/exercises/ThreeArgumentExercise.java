@@ -14,7 +14,6 @@ public class ThreeArgumentExercise extends AbstractExercise {
     private static final String[] SECOND_OPERATOR_LIST = {"*", "/"};
     private String firstOperator;
     private String secondOperator;
-    private int evaluatedResult;
 
     public ThreeArgumentExercise(Level level) {
         super(level);
@@ -52,25 +51,20 @@ public class ThreeArgumentExercise extends AbstractExercise {
     }
 
 
-
+    @Override
+    protected void calculateExpectedResult() {
+        try {
+            result = ((Number) scriptEngine.eval(getExpression())).intValue();
+        } catch (ScriptException e) {
+            e.printStackTrace();
+        }
+        System.out.println(result);
+    }
 
 
     public String getExpression() {
         return getFirstNumber() + " " + firstOperator + " " + getSecondNumber() + " " + secondOperator + " " + thirdNumber;
     }
 
-    {
-        try {
-            evaluatedResult = ((Number) scriptEngine.eval(getFirstNumber() + firstOperator + getSecondNumber() + secondOperator + thirdNumber)).intValue();
-        } catch (ScriptException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    protected void calculateExpectedResult() {
-        result = evaluatedResult;
-        System.out.println(result);
-    }
 
 }
