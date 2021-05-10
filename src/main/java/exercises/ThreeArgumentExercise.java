@@ -1,13 +1,7 @@
 package exercises;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 
 public class ThreeArgumentExercise extends AbstractExercise {
-    ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
-    ScriptEngine scriptEngine = scriptEngineManager.getEngineByName("JavaScript");
-
 
     private int thirdNumber = 1;
     private static final String[] FIRST_OPERATOR_LIST = {"+", "-"};
@@ -50,15 +44,31 @@ public class ThreeArgumentExercise extends AbstractExercise {
         }
     }
 
+    public static int e(int arg1, String operator, int arg2) {
+
+        switch (operator) {
+            case "/" -> {
+                return arg1 / arg2;
+            }
+            case "*" -> {
+                return arg1 * arg2;
+            }
+            case "+" -> {
+                return arg1 + arg2;
+            }
+            case "-" -> {
+                return arg1 - arg2;
+            }
+            default -> {
+                throw new IllegalStateException();
+            }
+
+        }
+    }
 
     @Override
     protected void calculateExpectedResult() {
-        try {
-            result = ((Number) scriptEngine.eval(getExpression())).intValue();
-        } catch (ScriptException e) {
-            e.printStackTrace();
-        }
-        System.out.println(result);
+       result = e(getFirstNumber(),firstOperator,e(getSecondNumber(),secondOperator,thirdNumber));
     }
 
 
