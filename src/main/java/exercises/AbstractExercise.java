@@ -47,7 +47,7 @@ public abstract class AbstractExercise {
     }
 
     public String getExpression(){
-        return getFirstNumber() + " " + getOperator() + " " + getSecondNumber();
+        return getFirstNumber() + " " + getOperator().replace("*", "×").replace("/", "÷") + " " + getSecondNumber();
     }
 
     public static int e(int arg1, String operator, int arg2) {

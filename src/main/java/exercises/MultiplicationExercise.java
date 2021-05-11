@@ -8,12 +8,12 @@ public class MultiplicationExercise extends AbstractExercise {
 
     @Override
     protected void initializeOperator() {
-       operator = "×";
+        operator = "*";
     }
 
     @Override
     public void calculateExpectedResult() {
-        result = e(getFirstNumber(),"*", getSecondNumber());
+        result = e(getFirstNumber(),getOperator(), getSecondNumber());
     }
 
     @Override
