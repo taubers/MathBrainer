@@ -33,4 +33,6 @@ public class ExerciseParams {
     public int getMin2() {
         return min2;
     }
+
+
 }

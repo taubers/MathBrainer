@@ -13,7 +13,7 @@ public class MultiplicationExercise extends AbstractExercise {
 
     @Override
     public void calculateExpectedResult() {
-        result = getFirstNumber() * getSecondNumber();
+        result = e(getFirstNumber(),"*", getSecondNumber());
     }
 
     @Override

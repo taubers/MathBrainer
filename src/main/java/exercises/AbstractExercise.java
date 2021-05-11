@@ -50,6 +50,28 @@ public abstract class AbstractExercise {
         return getFirstNumber() + " " + getOperator() + " " + getSecondNumber();
     }
 
+    public static int e(int arg1, String operator, int arg2) {
+
+        switch (operator) {
+            case "/" -> {
+                return arg1 / arg2;
+            }
+            case "*" -> {
+                return arg1 * arg2;
+            }
+            case "+" -> {
+                return arg1 + arg2;
+            }
+            case "-" -> {
+                return arg1 - arg2;
+            }
+            default -> {
+                throw new IllegalStateException();
+            }
+
+        }
+    }
+
 
 }
 

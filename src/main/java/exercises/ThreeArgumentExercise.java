@@ -6,7 +6,6 @@ public class ThreeArgumentExercise extends AbstractExercise {
     private int thirdNumber = 1;
     private static final String[] FIRST_OPERATOR_LIST = {"+", "-"};
     private static final String[] SECOND_OPERATOR_LIST = {"*", "/"};
-    private String firstOperator;
     private String secondOperator;
 
     public ThreeArgumentExercise(Level level) {
@@ -19,7 +18,7 @@ public class ThreeArgumentExercise extends AbstractExercise {
         int firstOperatorIndex = rand.nextInt(FIRST_OPERATOR_LIST.length);
         int secondOperatorIndex = rand.nextInt(SECOND_OPERATOR_LIST.length);
 
-        firstOperator = FIRST_OPERATOR_LIST[firstOperatorIndex];
+        operator = FIRST_OPERATOR_LIST[firstOperatorIndex];
         secondOperator = SECOND_OPERATOR_LIST[secondOperatorIndex];
     }
 
@@ -44,36 +43,14 @@ public class ThreeArgumentExercise extends AbstractExercise {
         }
     }
 
-    public static int e(int arg1, String operator, int arg2) {
 
-        switch (operator) {
-            case "/" -> {
-                return arg1 / arg2;
-            }
-            case "*" -> {
-                return arg1 * arg2;
-            }
-            case "+" -> {
-                return arg1 + arg2;
-            }
-            case "-" -> {
-                return arg1 - arg2;
-            }
-            default -> {
-                throw new IllegalStateException();
-            }
-
-        }
+    public String getExpression() {
+        return getFirstNumber() + " " + getOperator() + " " + getSecondNumber() + " " + secondOperator + " " + thirdNumber;
     }
 
     @Override
     protected void calculateExpectedResult() {
-       result = e(getFirstNumber(),firstOperator,e(getSecondNumber(),secondOperator,thirdNumber));
-    }
-
-
-    public String getExpression() {
-        return getFirstNumber() + " " + firstOperator + " " + getSecondNumber() + " " + secondOperator + " " + thirdNumber;
+        result = e(getFirstNumber(),operator,e(getSecondNumber(),secondOperator,thirdNumber));
     }
 
 

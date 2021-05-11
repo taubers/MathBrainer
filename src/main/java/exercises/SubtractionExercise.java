@@ -16,7 +16,7 @@ public class SubtractionExercise extends AbstractExercise {
 
     @Override
     public void calculateExpectedResult() {
-        result = getFirstNumber() - getSecondNumber();
+        result = e(getFirstNumber(),getOperator(), getSecondNumber());
     }
 
 

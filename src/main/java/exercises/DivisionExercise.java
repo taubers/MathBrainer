@@ -46,7 +46,7 @@ public class DivisionExercise extends AbstractExercise {
 
     @Override
     public void calculateExpectedResult() {
-        result = getFirstNumber() / getSecondNumber();
+        result = e(getFirstNumber(),"/", getSecondNumber());;
     }
 
     @Override
