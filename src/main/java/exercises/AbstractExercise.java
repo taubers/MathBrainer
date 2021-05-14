@@ -7,7 +7,6 @@ public abstract class AbstractExercise {
 
     protected int firstNumber;
     protected int secondNumber;
-    protected int thirdNumber; //temporary entry
     protected Operator operator;
     protected int result;
 
@@ -23,7 +22,6 @@ public abstract class AbstractExercise {
     protected void initializeArguments(ExerciseParams params) {
         firstNumber = rand.nextInt((params.getMax1() - params.getMin1()) + 1) + params.getMin1();
         secondNumber = rand.nextInt((params.getMax2() - params.getMin2()) + 1) + params.getMin2();
-        thirdNumber = rand.nextInt((20 - 2) + 1) + 2; //temporary entry
     }
 
     protected abstract void initializeOperator();
@@ -36,11 +34,11 @@ public abstract class AbstractExercise {
 
     ;
 
-    public int getFirstNumber() {
+    protected int getFirstNumber() {
         return firstNumber;
     }
 
-    public int getSecondNumber() {
+    protected int getSecondNumber() {
         return secondNumber;
     }
 

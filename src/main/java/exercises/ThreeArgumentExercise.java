@@ -6,6 +6,7 @@ public class ThreeArgumentExercise extends AbstractExercise {
     private static final Operator[] FIRST_OPERATOR_LIST = {Operator.ADD, Operator.SUBTRACT};
     private static final Operator[] SECOND_OPERATOR_LIST = {Operator.MULTIPLY, Operator.DIVIDE};
     private Operator secondOperator;
+    private int thirdNumber = rand.nextInt((20 - 2) + 1) + 2;
 
     public ThreeArgumentExercise(Level level) {
         super(level);
