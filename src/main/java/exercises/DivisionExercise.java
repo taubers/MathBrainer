@@ -41,13 +41,9 @@ public class DivisionExercise extends AbstractExercise {
 
     @Override
     protected void initializeOperator() {
-        operator = "/";
+        operator = Operator.DIVIDE;
     }
 
-    @Override
-    public void calculateExpectedResult() {
-        result = e(getFirstNumber(),getOperator(), getSecondNumber());;
-    }
 
     @Override
     public ExerciseParams initializeExerciseParams(Level level) {

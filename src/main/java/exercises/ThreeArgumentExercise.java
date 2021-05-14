@@ -3,10 +3,9 @@ package exercises;
 
 public class ThreeArgumentExercise extends AbstractExercise {
 
-    private int thirdNumber = 1;
-    private static final String[] FIRST_OPERATOR_LIST = {"+", "-"};
-    private static final String[] SECOND_OPERATOR_LIST = {"*", "/"};
-    private String secondOperator;
+    private static final Operator[] FIRST_OPERATOR_LIST = {Operator.ADD, Operator.SUBTRACT};
+    private static final Operator[] SECOND_OPERATOR_LIST = {Operator.MULTIPLY, Operator.DIVIDE};
+    private Operator secondOperator;
 
     public ThreeArgumentExercise(Level level) {
         super(level);
@@ -45,12 +44,12 @@ public class ThreeArgumentExercise extends AbstractExercise {
 
 
     public String getExpression() {
-        return getFirstNumber() + " " + getOperator() + " " + getSecondNumber() + " " + secondOperator + " " + thirdNumber;
+        return getFirstNumber() + " " + transformOperator(getOperator()) + " " + getSecondNumber() + " " + transformOperator(secondOperator) + " " + thirdNumber;
     }
 
     @Override
     protected void calculateExpectedResult() {
-        result = e(getFirstNumber(),operator,e(getSecondNumber(),secondOperator,thirdNumber));
+        result = e(getFirstNumber(), operator, e(getSecondNumber(), secondOperator, thirdNumber));
     }
 
 

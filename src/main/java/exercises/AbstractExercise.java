@@ -7,11 +7,12 @@ public abstract class AbstractExercise {
 
     protected int firstNumber;
     protected int secondNumber;
-    protected String operator;
+    protected int thirdNumber; //temporary entry
+    protected Operator operator;
     protected int result;
 
 
-    public AbstractExercise(Level level){
+    public AbstractExercise(Level level) {
         ExerciseParams exerciseParams = initializeExerciseParams(level);
         initializeArguments(exerciseParams);
         initializeOperator();
@@ -22,13 +23,18 @@ public abstract class AbstractExercise {
     protected void initializeArguments(ExerciseParams params) {
         firstNumber = rand.nextInt((params.getMax1() - params.getMin1()) + 1) + params.getMin1();
         secondNumber = rand.nextInt((params.getMax2() - params.getMin2()) + 1) + params.getMin2();
+        thirdNumber = rand.nextInt((20 - 2) + 1) + 2; //temporary entry
     }
 
     protected abstract void initializeOperator();
 
     protected abstract ExerciseParams initializeExerciseParams(Level level);
 
-    protected abstract void calculateExpectedResult();
+    protected void calculateExpectedResult() {
+        result = e(getFirstNumber(), getOperator(), getSecondNumber());
+    }
+
+    ;
 
     public int getFirstNumber() {
         return firstNumber;
@@ -42,27 +48,47 @@ public abstract class AbstractExercise {
         return result;
     }
 
-    public String getOperator() {
+    public Operator getOperator() {
         return operator;
     }
 
-    public String getExpression(){
-        return getFirstNumber() + " " + getOperator().replace("*", "×").replace("/", "÷") + " " + getSecondNumber();
+    public String getExpression() {
+        return getFirstNumber() + " " + transformOperator(getOperator()) + " " + getSecondNumber();
     }
 
-    public static int e(int arg1, String operator, int arg2) {
+    public String transformOperator(Operator operator) {
+        switch (operator) {
+            case DIVIDE -> {
+                return "÷";
+            }
+            case MULTIPLY -> {
+                return "×";
+            }
+            case ADD -> {
+                return "+";
+            }
+            case SUBTRACT -> {
+                return "-";
+            }
+            default -> {
+                throw new IllegalStateException();
+            }
+        }
+    }
+
+    public static int e(int arg1, Operator operator, int arg2) {
 
         switch (operator) {
-            case "/" -> {
+            case DIVIDE -> {
                 return arg1 / arg2;
             }
-            case "*" -> {
+            case MULTIPLY -> {
                 return arg1 * arg2;
             }
-            case "+" -> {
+            case ADD -> {
                 return arg1 + arg2;
             }
-            case "-" -> {
+            case SUBTRACT -> {
                 return arg1 - arg2;
             }
             default -> {

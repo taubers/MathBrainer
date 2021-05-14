@@ -7,7 +7,7 @@ import java.security.SecureRandom;
 public class ExerciseFactory {
 
     public static AbstractExercise getExercise(Level level) {
-        switch (level){
+        switch (level) {
             case LEVEL_1 -> {
                 int exercisePicker = new SecureRandom().nextInt(2);
                 switch (exercisePicker) {
@@ -38,11 +38,12 @@ public class ExerciseFactory {
 
             case LEVEL_7 -> {
                 return new ThreeArgumentExercise(level);
-                }
+            }
 
 
             default -> {
-                throw new IllegalStateException();}
+                throw new IllegalStateException();
+            }
         }
     }
 
