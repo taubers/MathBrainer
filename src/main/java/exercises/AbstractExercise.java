@@ -32,8 +32,6 @@ public abstract class AbstractExercise {
         result = e(getFirstNumber(), getOperator(), getSecondNumber());
     }
 
-    ;
-
     protected int getFirstNumber() {
         return firstNumber;
     }
@@ -51,10 +49,10 @@ public abstract class AbstractExercise {
     }
 
     public String getExpression() {
-        return getFirstNumber() + " " + transformOperator(getOperator()) + " " + getSecondNumber();
+        return getFirstNumber() + " " + transformOperatorForUI(getOperator()) + " " + getSecondNumber();
     }
 
-    public String transformOperator(Operator operator) {
+    public String transformOperatorForUI(Operator operator) {
         switch (operator) {
             case DIVIDE -> {
                 return "÷";

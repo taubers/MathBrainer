@@ -6,12 +6,17 @@ public class ThreeArgumentExercise extends AbstractExercise {
     private static final Operator[] FIRST_OPERATOR_LIST = {Operator.ADD, Operator.SUBTRACT};
     private static final Operator[] SECOND_OPERATOR_LIST = {Operator.MULTIPLY, Operator.DIVIDE};
     private Operator secondOperator;
-    private int thirdNumber = rand.nextInt((20 - 2) + 1) + 2;
+    private int thirdNumber;
 
     public ThreeArgumentExercise(Level level) {
         super(level);
     }
 
+    @Override
+    protected void initializeArguments(ExerciseParams params) {
+        super.initializeArguments(params);
+        thirdNumber = rand.nextInt((20 - 2) + 1) + 2;
+    }
 
     @Override
     protected void initializeOperator() {
@@ -43,9 +48,9 @@ public class ThreeArgumentExercise extends AbstractExercise {
         }
     }
 
-
+    @Override
     public String getExpression() {
-        return getFirstNumber() + " " + transformOperator(getOperator()) + " " + getSecondNumber() + " " + transformOperator(secondOperator) + " " + thirdNumber;
+        return getFirstNumber() + " " + transformOperatorForUI(getOperator()) + " " + getSecondNumber() + " " + transformOperatorForUI(secondOperator) + " " + thirdNumber;
     }
 
     @Override

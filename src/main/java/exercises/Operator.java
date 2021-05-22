@@ -6,7 +6,7 @@ public enum Operator {
     MULTIPLY("*"),
     DIVIDE("/");
 
+
     Operator(String s) {
     }
-
 }
