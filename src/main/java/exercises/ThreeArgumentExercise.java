@@ -49,8 +49,9 @@ public class ThreeArgumentExercise extends AbstractExercise {
     }
 
     @Override
+    // Returns a String of the expression to UI with modified operation
     public String getExpression() {
-        return getFirstNumber() + " " + transformOperatorForUI(getOperator()) + " " + getSecondNumber() + " " + transformOperatorForUI(secondOperator) + " " + thirdNumber;
+        return getFirstNumber() + " " + (getOperator().uiOperator()) + " " + getSecondNumber() + " " + secondOperator.uiOperator() + " " + thirdNumber;
     }
 
     @Override

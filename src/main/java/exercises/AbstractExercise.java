@@ -48,28 +48,9 @@ public abstract class AbstractExercise {
         return operator;
     }
 
+    // Returns a String of the expression to UI with modified operation
     public String getExpression() {
-        return getFirstNumber() + " " + transformOperatorForUI(getOperator()) + " " + getSecondNumber();
-    }
-
-    public String transformOperatorForUI(Operator operator) {
-        switch (operator) {
-            case DIVIDE -> {
-                return "÷";
-            }
-            case MULTIPLY -> {
-                return "×";
-            }
-            case ADD -> {
-                return "+";
-            }
-            case SUBTRACT -> {
-                return "-";
-            }
-            default -> {
-                throw new IllegalStateException();
-            }
-        }
+        return getFirstNumber() + " " + getOperator().uiOperator() + " " + getSecondNumber();
     }
 
     public static int e(int arg1, Operator operator, int arg2) {
