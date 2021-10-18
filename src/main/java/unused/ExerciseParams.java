@@ -1,4 +1,4 @@
-package exercises;
+package unused;
 
 public class ExerciseParams {
     private final int min1;
@@ -8,7 +8,7 @@ public class ExerciseParams {
 
     private final int max1;
     private final int max2;
-    //private final int max3;
+
     //private final int max4;
 
     public ExerciseParams(int min1, int max1, int min2, int max2/*, int min3, int max3*/) {
@@ -16,8 +16,7 @@ public class ExerciseParams {
         this.max1 = max1;
         this.min2 = min2;
         this.max2 = max2;
-        /*this.min3 = min3;
-        this.max3 = max3;*/
+
     }
 
     public int getMax1() {
@@ -36,11 +35,5 @@ public class ExerciseParams {
         return min2;
     }
 
-    /*public int getMin3() {
-        return min3;
-    }
 
-    public int getMax3() {
-        return max3;
-    }*/
 }

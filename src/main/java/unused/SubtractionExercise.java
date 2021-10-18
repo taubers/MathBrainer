@@ -1,14 +1,20 @@
-package exercises;
+package unused;
 
-public class AdditionExercise extends AbstractExercise {
 
-    public AdditionExercise(Level level) {
+import exercises.AbstractExercise;
+import exercises.Level;
+import exercises.Operator;
+
+public class SubtractionExercise extends AbstractExercise {
+
+
+    public SubtractionExercise(Level level) {
         super(level);
     }
 
     @Override
     protected void initializeOperator() {
-        operator = Operator.ADD;
+        operator = Operator.SUBTRACT;
     }
 
     @Override
@@ -18,24 +24,24 @@ public class AdditionExercise extends AbstractExercise {
                 return new ExerciseParams(2, 10, 2, 10);
             }
             case LEVEL_3 -> {
-                return new ExerciseParams(20, 900, 20, 900);
+                return new ExerciseParams(50, 900, 12, 849);
             }
             case LEVEL_4 -> {
-                return new ExerciseParams(15, 900, 15, 900);
+                return new ExerciseParams(200, 900, 200, 900);
             }
             case LEVEL_5 -> {
-                return new ExerciseParams(120, 900, 120, 900);
+                return new ExerciseParams(300, 900, 300, 900);
             }
             case LEVEL_6 -> {
-                return new ExerciseParams(300, 1200, 300, 1200);
+                return new ExerciseParams(600, 1800, 600, 1800);
             }
             case LEVEL_7 -> {
-                return new ExerciseParams(300, 1500, 300, 1200);
+                return new ExerciseParams(600, 1900, 600, 1800);
             }
             default -> {
                 throw new IllegalStateException();
             }
         }
     }
-}
 
+}

@@ -1,5 +1,10 @@
-package exercises;
+/*
+package unused;
 
+
+import exercises.AbstractExercise;
+import exercises.Level;
+import exercises.Operator;
 
 public class ThreeArgumentExercise extends AbstractExercise {
 
@@ -12,11 +17,13 @@ public class ThreeArgumentExercise extends AbstractExercise {
         super(level);
     }
 
-    @Override
-    protected void initializeArguments(ExerciseParams params) {
+   */
+/* @Override
+    protected void initializeArguments(ThreeExerciseParams params) {
         super.initializeArguments(params);
         thirdNumber = rand.nextInt((20 - 2) + 1) + 2;
-    }
+    }*//*
+
 
     @Override
     protected void initializeOperator() {
@@ -27,14 +34,15 @@ public class ThreeArgumentExercise extends AbstractExercise {
         secondOperator = SECOND_OPERATOR_LIST[secondOperatorIndex];
     }
 
-    @Override
+   */
+/* @Override
     protected ExerciseParams initializeExerciseParams(Level level) {
         switch (level) {
             case LEVEL_4 -> {
-                return new ExerciseParams(80, 200, 2, 20);
+                return new ThreeExerciseParams(2, 3);
             }
             case LEVEL_5 -> {
-                return new ExerciseParams(150, 300, 2, 25);
+                return new ThreeExerciseParams(150, 300);
             }
             case LEVEL_6 -> {
                 return new ExerciseParams(190, 900, 4, 32);
@@ -46,7 +54,8 @@ public class ThreeArgumentExercise extends AbstractExercise {
                 throw new IllegalStateException();
             }
         }
-    }
+    }*//*
+
 
     @Override
     // Returns a String of the expression to UI with modified operation
@@ -56,8 +65,9 @@ public class ThreeArgumentExercise extends AbstractExercise {
 
     @Override
     protected void calculateExpectedResult() {
-        result = e(getFirstNumber(), operator, e(getSecondNumber(), secondOperator, thirdNumber));
+        //result = Operator.e(getFirstNumber(), operator, Operator.e(getSecondNumber(), secondOperator, thirdNumber));
+
     }
 
 
-}
+}*/

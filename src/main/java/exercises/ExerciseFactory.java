@@ -1,6 +1,8 @@
 package exercises;
 
 
+import unused.*;
+
 import java.security.SecureRandom;
 
 
@@ -36,9 +38,9 @@ public class ExerciseFactory {
                 }
             }
 
-            case LEVEL_7 -> {
+            /*case LEVEL_7 -> {
                 return new ThreeArgumentExercise(level);
-            }
+            }*/
 
 
             default -> {

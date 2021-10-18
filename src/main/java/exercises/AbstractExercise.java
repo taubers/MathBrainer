@@ -1,5 +1,7 @@
 package exercises;
 
+import unused.ExerciseParams;
+
 import java.util.Random;
 
 public abstract class AbstractExercise {
@@ -28,8 +30,9 @@ public abstract class AbstractExercise {
 
     protected abstract ExerciseParams initializeExerciseParams(Level level);
 
+
     protected void calculateExpectedResult() {
-        result = e(getFirstNumber(), getOperator(), getSecondNumber());
+        result = getOperator().e(getFirstNumber(),getSecondNumber());
     }
 
     protected int getFirstNumber() {
@@ -53,29 +56,9 @@ public abstract class AbstractExercise {
         return getFirstNumber() + " " + getOperator().uiOperator() + " " + getSecondNumber();
     }
 
-    public static int e(int arg1, Operator operator, int arg2) {
 
-        switch (operator) {
-            case DIVIDE -> {
-                return arg1 / arg2;
-            }
-            case MULTIPLY -> {
-                return arg1 * arg2;
-            }
-            case ADD -> {
-                return arg1 + arg2;
-            }
-            case SUBTRACT -> {
-                return arg1 - arg2;
-            }
-            default -> {
-                throw new IllegalStateException();
-            }
-
-        }
     }
 
 
-}
 
 
